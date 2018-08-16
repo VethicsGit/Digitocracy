@@ -14,7 +14,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.kanika.digitocracy.login.LoginResponse;
 import com.example.kanika.digitocracy.login.Responsee;
+
+import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -58,34 +61,34 @@ public class Login extends AppCompatActivity {
              String pw=password.getText().toString();*/
 
                 API apiService = APIS.getRetrofit().create(API.class);
-                Call<Responsee> call1 = apiService.Sigin(email.getText().toString(),password.getText().toString());
+                Call<LoginResponse> call1 = apiService.Sigin(email.getText().toString(),password.getText().toString());
 
-                call1.enqueue(new Callback<Responsee>() {
+                call1.enqueue(new Callback<LoginResponse>() {
                     @Override
-                    public void onResponse(@NonNull Call<Responsee> call, @NonNull Response<Responsee> response) {
+                    public void onResponse(@NonNull Call<LoginResponse> call, @NonNull Response<LoginResponse> response) {
                         Log.e("_response_login","login"+response.body().toString());
 
+                        LoginResponse res=response.body();
+                        List<Responsee> list_response= res.getResponse();
 
+                        for (int i=0;i<list_response.size();i++) {
 
+                                    Responsee responsee = list_response.get(i);
+                                    Log.e("resnse", responsee.getResponseMsg());
 
-                        if(response.isSuccessful()){
-                            Responsee responsee=response.body();
-                            Log.e("resnse",responsee.getStatus());
-
-                            if (responsee.getStatus().equals("true")) {
-                                Intent intent = new Intent(getApplicationContext(),Location.class);
-                                startActivity(intent);
-                            }/*else{
+                                    if (responsee.getStatus().equals("true")) {
+                                        Intent intent = new Intent(getApplicationContext(), Location.class);
+                                        startActivity(intent);
+                                    }else{
                                 Toast.makeText(getApplicationContext(),"Invalid",Toast.LENGTH_LONG).show();
-                            }*/
-
                             }
 
+                        }
                     }
 
 
                     @Override
-                    public void onFailure(Call<Responsee> call, Throwable t) {
+                    public void onFailure(Call<LoginResponse> call, Throwable t) {
 
                     }
                 });
