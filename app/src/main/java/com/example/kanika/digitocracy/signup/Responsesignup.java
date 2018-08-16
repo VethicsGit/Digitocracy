@@ -1,11 +1,11 @@
 
-package com.example.kanika.digitocracy;
+package com.example.kanika.digitocracy.signup;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Response {
+public class Responsesignup {
 
     @SerializedName("response")
     @Expose

@@ -15,6 +15,12 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.kanika.digitocracy.login.LoginResponse;
+import com.example.kanika.digitocracy.login.Responsee;
+import com.example.kanika.digitocracy.signup.Response_;
+import com.example.kanika.digitocracy.signup.Responsesignup;
+
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -29,12 +35,13 @@ public class Register extends AppCompatActivity {
 
     SQLiteOpenHelper openHelper;
     SQLiteDatabase db;
-    Button register ;
-    EditText name,email,password;
+    Button register;
+    EditText name, email, password;
     CheckBox terms;
     TextView alredylogin;
     RadioGroup group;
     String gender;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,17 +49,17 @@ public class Register extends AppCompatActivity {
 
 
         openHelper = new DatabaseHelper(this);
-        name=findViewById(R.id.name);
-        email=findViewById(R.id.email);
-        password=findViewById(R.id.password);
-        alredylogin=findViewById(R.id.alredylogin);
-        group=findViewById(R.id.group);
-        register=findViewById(R.id.register);
+        name = findViewById(R.id.name);
+        email = findViewById(R.id.email);
+        password = findViewById(R.id.password);
+        alredylogin = findViewById(R.id.alredylogin);
+        group = findViewById(R.id.group);
+        register = findViewById(R.id.register);
 
         alredylogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Register.this,Login.class);
+                Intent i = new Intent(Register.this, Login.class);
                 startActivity(i);
             }
         });
@@ -64,16 +71,15 @@ public class Register extends AppCompatActivity {
 
 
                 ApiCallRegister();
-                db=openHelper.getWritableDatabase();
-                String nm=name.getText().toString();
-                String em=email.getText().toString();
-                String pw=password.getText().toString();
-
+                db = openHelper.getWritableDatabase();
+                String nm = name.getText().toString();
+                String em = email.getText().toString();
+                String pw = password.getText().toString();
 
 
                 int selectedId = group.getCheckedRadioButtonId();
-                String gender;
-                if(selectedId == R.id.female)
+
+                if (selectedId == R.id.female)
                     gender = "Female";
                 else
                     gender = "Male";
@@ -103,6 +109,7 @@ public class Register extends AppCompatActivity {
 
 
     }
+
     private boolean isValidEmail(String email) {
         String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                 + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
@@ -111,6 +118,7 @@ public class Register extends AppCompatActivity {
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
+
     private boolean isValidPassword(String pass) {
         if (pass != null && pass.length() > 6) {
             return true;
@@ -119,39 +127,47 @@ public class Register extends AppCompatActivity {
     }
 
 
-
-    private void ApiCallRegister(){
+    private void ApiCallRegister() {
 
         API apiService = APIS.getRetrofit().create(API.class);
-        Call<Response_> call1 = apiService.Signup(name.getText().toString().trim(),
+        Call<Responsesignup> call1 = apiService.Signup(name.getText().toString().trim(),
                 email.getText().toString().trim(),
-                password.getText().toString().trim(),gender);
+                password.getText().toString().trim(), gender);
 
-       call1.enqueue(new Callback<Response_>() {
-           @Override
-           public void onResponse(Call<Response_> call, Response<Response_> response) {
+        call1.enqueue(new Callback<Responsesignup>() {
+            @Override
+            public void onResponse(Call<Responsesignup> call, Response<Responsesignup> response) {
+                Log.e("_response_signup","login"+response.body().toString());
 
-               if (response.isSuccessful()) {
-                Response_ response_= response.body();
-
-                   if (response_ != null && response_.getStatus().equals("true"))
-                       Log.e("Register", "register" + response.body().toString());
-                   Intent intent = new Intent(getApplicationContext(), Login.class);
-                       startActivity(intent);
+                Responsesignup res = response.body();
+                List<Response_> list_response = res.getResponse();
 
 
-               }
-           }
+                for (int i= 0;i<list_response.size();i++) {
 
-                         @Override
-                         public void onFailure(Call<Response_> call, Throwable t) {
+                    Response_ response_ = list_response.get(i);
+                    Log.e("response",response_.getResponseMsg());
 
-                         }
+                    if (response_.getStatus().equals("true")) {
+                        Log.e("Register", "register" + response.body().toString());
+                        Intent intent = new Intent(getApplicationContext(), Login.class);
+                        startActivity(intent);
 
-                         });
+
+                    }else {
+
+                        Toast.makeText(getApplicationContext(),"please check your email and verify you account first",Toast.LENGTH_LONG).show();
+                    }
 
 
-    }
+                }
+
+
+
+
+
+
+
 
   /*  private boolean insertedata(String nm,String em,String pw,String gender){
         ContentValues contentValues= new ContentValues();
@@ -163,4 +179,13 @@ public class Register extends AppCompatActivity {
 
         return false;
     }*/
+            }
+
+            @Override
+            public void onFailure(Call<Responsesignup> call, Throwable t) {
+
+            }
+
+        });
+    }
 }

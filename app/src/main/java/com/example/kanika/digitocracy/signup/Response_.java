@@ -1,5 +1,5 @@
 
-package com.example.kanika.digitocracy;
+package com.example.kanika.digitocracy.signup;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
 public class Response_ {
 
     @SerializedName("status")
-
+    @Expose
     private String status;
     @SerializedName("screen_code")
     @Expose

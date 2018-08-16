@@ -1,7 +1,7 @@
 package com.example.kanika.digitocracy;
 
 import com.example.kanika.digitocracy.login.LoginResponse;
-import com.example.kanika.digitocracy.login.Responsee;
+import com.example.kanika.digitocracy.signup.Responsesignup;
 
 import okhttp3.ResponseBody;
 import okhttp3.internal.http.RealResponseBody;
@@ -14,7 +14,7 @@ public interface API {
 
     @FormUrlEncoded
     @POST("Signup")
-    Call<Response_> Signup(@Field("name") String name,
+    Call<Responsesignup> Signup(@Field("name") String name,
                                     @Field("email") String email,
                                     @Field("password") String password,
                                     @Field("gender") String gender);
