@@ -1,5 +1,6 @@
 package com.example.kanika.digitocracy;
 
+import com.example.kanika.digitocracy.location.LocationResponse;
 import com.example.kanika.digitocracy.login.LoginResponse;
 import com.example.kanika.digitocracy.signup.Responsesignup;
 
@@ -77,7 +78,7 @@ public interface API {
 
 
     @POST("Upadate_user_profile")
-    Call<RealResponseBody> Upadate_user_profile(@Field("user_id") String user_id,
+    Call<LocationResponse> Upadate_user_profile(@Field("user_id") String user_id,
                                                 @Field("name") String name,
                                                 @Field("gender") String gender,
                                                 @Field("notification_status") String notification_status,

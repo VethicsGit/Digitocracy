@@ -9,9 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.kanika.digitocracy.location.LocationResponse;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
@@ -22,7 +27,7 @@ public class Location extends AppCompatActivity {
 
     TextView tv1, tv2;
     Button location;
-
+    String lat,lng;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.location);
@@ -40,25 +45,44 @@ public class Location extends AppCompatActivity {
             public void onClick(View view) {
                 if (ActivityCompat.checkSelfPermission(Location.this, ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ) {
                     // TODO: Consider calling
-                    //    ActivityCompat#requestPermissions
-                    // here to request the missing permissions, and then overriding
-                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                    //                                          int[] grantResults)
-                    // to handle the case where the user grants the permission. See the documentation
-                    // for ActivityCompat#requestPermissions for more details.
+
                     return;
                 }
                 client.getLastLocation().addOnSuccessListener(Location.this, new OnSuccessListener<android.location.Location>() {
                     @Override
-                     public void onSuccess(android.location.Location location) {
+                     public void onSuccess(final android.location.Location location) {
 
 
                         Intent i = new Intent(Location.this,PollCategories.class);
                         startActivity(i);
 
                         if (location !=null ){
-                            TextView textView = findViewById(R.id.loc);
-                            textView.setText(location.toString());
+                            final TextView textView = findViewById(R.id.loc);
+
+
+
+
+                            API apiService = APIS.getRetrofit().create(API.class);
+                            Call<LocationResponse> call = apiService.Upadate_location()):
+
+                            call.enqueue(new Callback<LocationResponse>() {
+                                @Override
+                                public void onResponse(Call<LocationResponse> call, Response<LocationResponse> response) {
+                                    location.getLatitude();
+                                    location.getLongitude();
+                                    textView.setText(location.toString():
+
+                                }
+
+                                @Override
+                                public void onFailure(Call<LocationResponse> call, Throwable t) {
+
+                                }
+                            });
+
+
+
+
 
                         }
 
