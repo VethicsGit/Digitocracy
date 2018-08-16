@@ -1,16 +1,24 @@
 package com.example.kanika.digitocracy;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,6 +53,7 @@ public class Register extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_register);
 
 
@@ -128,6 +137,12 @@ public class Register extends AppCompatActivity {
 
 
     private void ApiCallRegister() {
+        final ProgressDialog  mProgressDialog = new ProgressDialog(Register.this);
+        mProgressDialog.setIndeterminate(false);
+        mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+//        mProgressDialog.setContentView(R.layout.progress_dialog_layout);
+        mProgressDialog.setMessage("Please wait...");
+        mProgressDialog.show();
 
         API apiService = APIS.getRetrofit().create(API.class);
         Call<Responsesignup> call1 = apiService.Signup(name.getText().toString().trim(),
@@ -136,7 +151,7 @@ public class Register extends AppCompatActivity {
 
         call1.enqueue(new Callback<Responsesignup>() {
             @Override
-            public void onResponse(Call<Responsesignup> call, Response<Responsesignup> response) {
+            public void onResponse(@NonNull Call<Responsesignup> call, @NonNull Response<Responsesignup> response) {
                 Log.e("_response_signup","login"+response.body().toString());
 
                 Responsesignup res = response.body();
@@ -146,16 +161,17 @@ public class Register extends AppCompatActivity {
                 for (int i= 0;i<list_response.size();i++) {
 
                     Response_ response_ = list_response.get(i);
-                    Log.e("response",response_.getResponseMsg());
+                    Log.e("response status",response_.getStatus());
 
                     if (response_.getStatus().equals("true")) {
+                        mProgressDialog.dismiss();
                         Log.e("Register", "register" + response.body().toString());
                         Intent intent = new Intent(getApplicationContext(), Login.class);
                         startActivity(intent);
 
 
                     }else {
-
+mProgressDialog.dismiss();
                         Toast.makeText(getApplicationContext(),"please check your email and verify you account first",Toast.LENGTH_LONG).show();
                     }
 
@@ -182,7 +198,11 @@ public class Register extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<Responsesignup> call, Throwable t) {
+            public void onFailure(@NonNull Call<Responsesignup> call, @NonNull Throwable t) {
+                mProgressDialog.dismiss();
+                Toast.makeText(Register.this, "Failure", Toast.LENGTH_SHORT).show();
+                Log.e("throwable",t.getMessage());
+                call.request();
 
             }
 

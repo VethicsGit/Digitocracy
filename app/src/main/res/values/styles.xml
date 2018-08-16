@@ -19,4 +19,14 @@
     <style name="button">
         <item name="android:background">@drawable/roundedbutton</item>
     </style>
+    <style name="CustomAlertDialogStyle">
+        <item name="android:bottomBright">#00000000</item>
+        <item name="android:bottomDark">#00000000</item>
+        <item name="android:bottomMedium">#00000000</item>
+        <item name="android:centerBright">#00000000</item>
+        <item name="android:centerDark">#00000000</item>
+        <item name="android:centerMedium">#00000000</item>
+        <item name="android:topBright">#00000000</item>
+        <item name="android:topDark">#00000000</item>
+    </style>
 </resources>
