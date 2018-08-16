@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+    <!--    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="      Live Polls      "
+                android:textColor="#ffffff"
+                android:background="@drawable/buttonblue" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#1E97C2"
+                android:text="  Closed Polls  "
+                android:background="@drawable/buttonwhite"
+                />
+        </LinearLayout>-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="How was our perfomance?"/>
+            <TextView
+                android:id="@+id/days1"
+                android:layout_width="match_parent"
+                android:text="Closed in 5 day"
+                android:gravity="end"
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content" />
+
+            <RadioGroup
+                android:id="@+id/group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yes"
+                    android:buttonTint="@color/skyblue"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Maybe"
+                    android:buttonTint="@color/skyblue"/>
+
+            </RadioGroup>
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+            <TextView
+                android:id="@+id/vote1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vote : 1"/>
+
+            <TextView
+                android:id="@+id/more1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/textview"
+                android:text="Know more"
+                android:layout_alignParentRight="true"
+                android:gravity="end"
+                android:textColor="@color/skyblue"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="What your Favirote Book?"/>
+
+        <TextView
+            android:id="@+id/days2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="Closed in 2 Week"/>
+
+        <RadioGroup
+            android:id="@+id/group2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:buttonTint="@color/skyblue"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yes"
+                android:buttonTint="@color/skyblue"/>
+
+        </RadioGroup>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+            <TextView
+                android:id="@+id/vote2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vote : 1"/>
+
+            <TextView
+                android:id="@+id/more2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/textview"
+                android:layout_alignParentRight="true"
+                android:text="Know more"
+                android:gravity="end"
+                android:textColor="@color/skyblue"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

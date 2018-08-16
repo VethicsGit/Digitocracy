@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Did You Know?"/>
+
+        <TextView
+            android:id="@+id/elc_days"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="Closed in 2 Day"/>
+
+        <RadioGroup
+            android:id="@+id/elc_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:buttonTint="@color/skyblue"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yes"
+                android:buttonTint="@color/skyblue"/>
+
+        </RadioGroup>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+            <TextView
+                android:id="@+id/elc_vote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vote : 1"/>
+
+            <TextView
+                android:id="@+id/elc_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/textview"
+                android:text=" Know more "
+                android:gravity="end"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/skyblue"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Digitocracy</string>
+    <string name="slide_1_title">Raise your Voice</string>
+    <string name="slide_1_desc">Join the live polls and
+                                give your valuable feedback </string>
+    <string name="slide_2_title">Raise your Voice</string>
+    <string name="slide_2desc">Join the live polls and
+                                give your valuable feedback</string>
+    <string name="slide_3_title">Raise your Voice</string>
+    <string name="slide_3_desc">Join the live polls and
+                                give your valuable feedback</string>
+
+</resources>

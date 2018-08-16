@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+
+    android:background="@drawable/graident"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SHARE YOUR LOCATION
+    WITH US"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:layout_gravity="center"
+
+        android:layout_marginTop="20dp"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="We publis the polls from all our country
+This will aloow us to choose th poll relevent
+ to you"
+        android:textColor="#ffffff"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_below="@+id/tv1"
+        android:layout_marginTop="20dp"
+        android:textSize="15dp" />
+<TextView
+    android:id="@+id/loc"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_above="@+id/location"
+    android:gravity="center"
+    android:text="location"/>
+
+    <Button
+        android:id="@+id/location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Use Current Location"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:layout_margin="30dp"
+        android:textColor="#1E97C2"
+
+        android:translationZ="20dp" />
+
+</RelativeLayout>
