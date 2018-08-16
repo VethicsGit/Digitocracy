@@ -39,7 +39,9 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_alignParentBottom="true"
+        android:background="#ffffff"
         android:textColor="#42A7C6"
+        android:textSize="20dp"
         android:text="skip"/>
 
 </RelativeLayout>

@@ -1,138 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background"
-    android:orientation="vertical"
-    tools:context=".Login">
+<RelativeLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+    xmlns:app = "http://schemas.android.com/apk/res-auto"
+    xmlns:tools = "http://schemas.android.com/tools"
+    android:layout_width = "match_parent"
+    android:layout_height = "match_parent"
+    android:background = "@drawable/background"
+    android:orientation = "vertical"
+    tools:context = ".Login">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/graident"
-        android:orientation="vertical">
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_margin="10dp"
-    android:layout_height="match_parent">
-    <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="154dp"
-            android:padding="30dp"
-        android:src="@drawable/logo_white"
-            />
+        android:layout_width = "match_parent"
+        android:layout_height = "match_parent"
+        android:background = "@drawable/graident"
+        android:orientation = "vertical">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/edittext">
+            android:layout_width = "match_parent"
+            android:layout_height = "match_parent"
+            android:orientation = "vertical">
 
             <ImageView
-                android:layout_width="55dp"
-                android:layout_height="match_parent"
-                android:src="@drawable/email" />
+                android:layout_weight="1"
+                android:layout_marginTop="30dp"
+                android:layout_width = "match_parent"
+                android:layout_height = "154dp"
+                android:padding = "30dp"
+                android:src = "@drawable/logo_white" />
 
-            <EditText
-                android:id="@+id/email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            <LinearLayout
+                android:layout_weight="0.1"
+                android:layout_width = "wrap_content"
+                android:layout_height = "40dp"
+                android:layout_marginBottom = "10dp"
+                android:minWidth="300dp"
                 android:layout_gravity="center"
-                android:backgroundTint="#00000000"
-                android:hint="Email id"
-                android:textColorHint="#ffffff"
-                android:textColor="#ffffff" />
-        </LinearLayout>
+                android:layout_marginEnd = "30dp"
+                android:layout_marginStart = "30dp"
+                android:layout_marginTop = "10dp"
+                android:background = "@drawable/edittext">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/edittext">
+                <ImageView
+                    android:layout_width = "55dp"
+                    android:layout_height = "match_parent"
+                    android:padding = "3dp"
+                    android:src = "@drawable/email" />
 
-            <ImageView
-                android:layout_width="55dp"
-                android:layout_height="match_parent"
-                android:src="@drawable/password" />
+                <EditText
+                    android:id = "@+id/email"
+                    android:layout_width = "match_parent"
+                    android:layout_height = "wrap_content"
+                    android:layout_gravity = "center"
+                    android:backgroundTint = "#00000000"
+                    android:hint = "Email id"
+                    android:textSize="18dp"
+                    android:inputType = "textEmailAddress"
+                    android:textColor = "#ffffff"
+                    android:textColorHint = "#94C1D4" />
+            </LinearLayout>
 
-            <EditText
-                android:id="@+id/password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            <LinearLayout
+                android:layout_weight="0.1"
+                android:layout_width = "wrap_content"
+                android:layout_height = "40dp"
                 android:layout_gravity="center"
-                android:backgroundTint="#00000000"
-                android:padding="10dp"
-                android:hint="Password"
-                android:textColorHint="#ffffff"
-                android:inputType="textPassword"
-                android:textColor="#ffffff" />
-        </LinearLayout>
+                android:minWidth="300dp"
+                android:layout_marginBottom = "10dp"
+                android:layout_marginEnd = "30dp"
+                android:layout_marginStart = "30dp"
+                android:layout_marginTop = "10dp"
+                android:background = "@drawable/edittext">
 
-        <TextView
-            android:id="@+id/forgot"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            android:text="Forgot Password?"
-            android:textColor="#ffffff"
-            android:textSize="20dp" />
+                <ImageView
+                    android:layout_width = "55dp"
+                    android:layout_height = "match_parent"
+                    android:padding = "3dp"
+                    android:src = "@drawable/password" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:paddingLeft="70dp"
-            android:paddingRight="70dp"
-            android:layout_marginTop="30dp"
-            android:translationZ="20dp"
-            android:text="Sign in"
-            android:id="@+id/login"
-            android:textColor="#1E97C2" />
-
-        <TextView
-            android:id="@+id/signup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            android:text="Don't have an account? Sign Up"
-            android:textColor="#ffffff"
-            android:textSize="20dp" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+                <EditText
+                    android:id = "@+id/password"
+                    android:layout_width = "match_parent"
+                    android:layout_height = "wrap_content"
+                    android:layout_gravity = "center"
+                    android:backgroundTint = "#00000000"
+                    android:hint = "Password"
+                    android:inputType = "textPassword"
+                    android:padding = "10dp"
+                    android:textSize="18dp"
+                    android:textColor = "#ffffff"
+                    android:textColorHint = "#94C1D4" />
+            </LinearLayout>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_gravity="center"
-                android:layout_marginBottom="15dp"
+                android:id = "@+id/forgot"
+                android:layout_width = "wrap_content"
+                android:layout_height = "40dp"
+                android:layout_gravity = "center"
+                android:layout_marginTop = "30dp"
+                android:text = "Forgot Password?"
+                android:textColor = "#ffffff"
+                android:textSize = "18dp" />
 
-                android:layout_toStartOf="@+id/vethics"
-                android:text="Powerd by:"
-                android:textColor="#ffffff"
-                android:textSize="20dp"
-                android:layout_toLeftOf="@+id/vethics" />
+            <Button
+                android:layout_weight="0.1"
+                android:id = "@+id/login"
+                android:layout_width = "wrap_content"
+                android:layout_height = "40dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity = "center"
+                android:background = "@drawable/white_round_corner"
 
-            <ImageView
-                android:id="@+id/vethics"
-                android:layout_width="112dp"
-                android:layout_height="58dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="66dp"
-                android:src="@drawable/vethics1_logo"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="66dp" />
-        </RelativeLayout>
-</LinearLayout>
+                android:minWidth="250dp"
+                android:paddingLeft = "70dp"
+                android:paddingRight = "70dp"
+                android:text = "Sign In"
+                android:textAllCaps = "false"
+                android:textColor = "#1E97C2"
+                android:textSize = "22dp"
+                android:textStyle = "bold" />
+
+            <TextView
+                android:layout_weight="1"
+                android:id = "@+id/signup"
+                android:layout_width = "wrap_content"
+                android:layout_height = "40dp"
+                android:layout_gravity = "center"
+                android:layout_marginTop = "50dp"
+                android:text = "Don't have an account? Sign Up"
+                android:textColor = "#ffffff"
+                android:textSize = "18dp" />
+
+            <LinearLayout
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:layout_alignParentBottom = "true"
+                android:gravity = "center">
+
+                <TextView
+                    android:layout_width = "wrap_content"
+                    android:layout_height = "match_parent"
+                    android:layout_alignParentBottom = "true"
+                    android:layout_gravity = "center"
+                    android:gravity="center"
+                    android:layout_toLeftOf = "@+id/vethics"
+                    android:layout_toStartOf = "@+id/vethics"
+                    android:text = "Powerd by : "
+                    android:textColor = "#ffffff"
+                    android:textSize = "18dp" />
+
+                <ImageView
+                    android:id = "@+id/vethics"
+                    android:layout_width = "100dp"
+                    android:layout_height = "50dp"
+                    android:layout_alignParentBottom = "true"
+                    android:layout_alignParentEnd = "true"
+                    android:layout_alignParentRight = "true"
+                    android:src = "@drawable/vethics1_logo" />
+            </LinearLayout>
+
+        </LinearLayout>
+
 
     </LinearLayout>
-</LinearLayout>
+
+
+</RelativeLayout>

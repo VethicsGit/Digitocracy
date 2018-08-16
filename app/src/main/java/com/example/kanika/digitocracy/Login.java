@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -44,6 +45,9 @@ public class Login extends AppCompatActivity {
         signup=findViewById(R.id.signup);
         openHelper = new DatabaseHelper(this);
         db=openHelper.getReadableDatabase();
+
+        /*Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/brandonmed.otf");
+        login.setTypeface(custom_font);*/
 
 
         signup.setOnClickListener(new View.OnClickListener() {
