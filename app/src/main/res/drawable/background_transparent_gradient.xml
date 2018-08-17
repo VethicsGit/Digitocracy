@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android = "http://schemas.android.com/apk/res/android">
+    <item>
+        <bitmap
+
+            android:gravity = "bottom|right"
+            android:src = "@drawable/background" />
+    </item>
+    <item>
+        <shape android:shape = "rectangle">
+            <gradient
+
+                android:angle = "270"
+                android:centerColor = "#801b90ba"
+                android:endColor = "#8000b9ee"
+                android:startColor = "#80386484"
+                android:type = "linear" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape = "rectangle">
+            <gradient
+
+                android:angle = "270"
+                android:centerColor = "#801b90ba"
+                android:endColor = "#8000b9ee"
+                android:startColor = "#80386484"
+                android:type = "linear" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape = "rectangle">
+            <gradient
+
+                android:angle = "270"
+                android:centerColor = "#801b90ba"
+                android:endColor = "#8000b9ee"
+                android:startColor = "#80386484"
+                android:type = "linear" />
+        </shape>
+    </item>
+   <!-- <item>
+        <shape android:shape = "rectangle">
+            <gradient
+
+                android:angle = "270"
+                android:centerColor = "#801b90ba"
+                android:endColor = "#8000b9ee"
+                android:startColor = "#80386484"
+                android:type = "linear" />
+        </shape>
+    </item>-->
+
+    <!-- <item
+         android:height="68dp"
+         android:left="-20dp"
+         android:bottom="-20dp"
+         android:width="68dp">
+         <bitmap
+             android:gravity="bottom|left"
+             android:src="@drawable/background" />
+     </item>-->
+</layer-list>

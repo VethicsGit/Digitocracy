@@ -1,5 +1,5 @@
 
-package com.example.kanika.digitocracy.signup;
+package com.example.kanika.digitocracy.APIResponse.signup;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

@@ -1,4 +1,4 @@
-package com.example.kanika.digitocracy;
+package com.example.kanika.digitocracy.APISHelper;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

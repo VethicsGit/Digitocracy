@@ -1,14 +1,18 @@
-package com.example.kanika.digitocracy;
+package com.example.kanika.digitocracy.APISHelper;
 
+import com.example.kanika.digitocracy.APIResponse.ForgotPass.ForgotpassResponse;
+import com.example.kanika.digitocracy.APIResponse.PollCategoryList.PollCategoryList;
 import com.example.kanika.digitocracy.location.LocationResponse;
-import com.example.kanika.digitocracy.login.LoginResponse;
-import com.example.kanika.digitocracy.signup.Responsesignup;
+import com.example.kanika.digitocracy.APIResponse.login.LoginResponse;
+import com.example.kanika.digitocracy.APIResponse.signup.Responsesignup;
 
 import okhttp3.ResponseBody;
 import okhttp3.internal.http.RealResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.Header;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 public interface API {
@@ -44,8 +48,10 @@ public interface API {
     Call<LoginResponse> Sigin (@Field("email") String email,
                                @Field("password") String password);
 
+    @FormUrlEncoded
+
     @POST("Forgot_Password")
-    Call<RealResponseBody> Forgot_Password (@Field("email") String email);
+    Call<ForgotpassResponse> Forgot_Password (@Field("email") String email);
 
 
     @POST("Change_Password")
@@ -94,9 +100,9 @@ public interface API {
 
 
 
-
+    @FormUrlEncoded
     @POST("Poll_category_list")
-    Call<RealResponseBody> Poll_category_list(@Field("user_id") String user_id);
+    Call<PollCategoryList> Poll_category_list(@Field("user_id") String user_id, @Header("Authorization") String authorization);
 
 
 

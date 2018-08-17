@@ -1,10 +1,10 @@
 
-package com.example.kanika.digitocracy.login;
+package com.example.kanika.digitocracy.APIResponse.ForgotPass;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Responsee {
+public class Response {
 
     @SerializedName("status")
     @Expose
@@ -12,12 +12,6 @@ public class Responsee {
     @SerializedName("response_msg")
     @Expose
     private String responseMsg;
-    @SerializedName("token")
-    @Expose
-    private String token;
-    @SerializedName("screen_code")
-    @Expose
-    private String screenCode;
     @SerializedName("user_id")
     @Expose
     private String userId;
@@ -45,22 +39,6 @@ public class Responsee {
 
     public void setResponseMsg(String responseMsg) {
         this.responseMsg = responseMsg;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public String getScreenCode() {
-        return screenCode;
-    }
-
-    public void setScreenCode(String screenCode) {
-        this.screenCode = screenCode;
     }
 
     public String getUserId() {
