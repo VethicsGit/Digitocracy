@@ -338,6 +338,7 @@ public class Location extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
+
                     }
                 });
                 builder.show();
