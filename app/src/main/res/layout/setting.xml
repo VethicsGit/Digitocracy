@@ -7,6 +7,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:id="@+id/setting_editprofile"
         android:orientation="horizontal">
 
         <ImageView
@@ -30,6 +31,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:id="@+id/setting_aboutus"
         android:orientation="horizontal">
 
         <ImageView
@@ -50,6 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="2dp"></View>
     <LinearLayout
+        android:id="@+id/setting_feedback"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="horizontal">
@@ -74,6 +77,7 @@
     <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="60dp"
+        android:id="@+id/setting_privacypolice"
     android:orientation="horizontal">
 
     <ImageView
@@ -96,6 +100,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:id="@+id/setting_termsofuse"
         android:orientation="horizontal">
 
         <ImageView
@@ -118,6 +123,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:id="@+id/setting_rateapp"
         android:orientation="horizontal">
 
         <ImageView
@@ -138,6 +144,7 @@
         android:layout_width="wrap_content"
         android:layout_height="2dp"></View>
     <LinearLayout
+        android:id="@+id/setting_logout"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="horizontal">

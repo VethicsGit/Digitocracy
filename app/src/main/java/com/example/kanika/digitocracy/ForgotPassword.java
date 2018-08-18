@@ -13,7 +13,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.kanika.digitocracy.APIResponse.ForgotPass.ForgotpassResponse;
-import com.example.kanika.digitocracy.APIResponse.login.LoginResponse;
 import com.example.kanika.digitocracy.APISHelper.API;
 import com.example.kanika.digitocracy.APISHelper.APIS;
 

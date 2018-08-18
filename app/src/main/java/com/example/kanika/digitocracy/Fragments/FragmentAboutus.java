@@ -1,4 +1,4 @@
-package com.example.kanika.digitocracy;
+package com.example.kanika.digitocracy.Fragments;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -7,23 +7,22 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
-public class Fragmentpublicclose extends Fragment {
+import com.example.kanika.digitocracy.R;
 
-        TextView tv1,b1;
+public class FragmentAboutus extends Fragment {
 
+
+        TextView about_tv1,about_description;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view=inflater.inflate(R.layout.fragment_aboutus,container,false);
 
-        View view=inflater.inflate(R.layout.fragmentpublicclose,container,false);
-
-        tv1=(TextView)view.findViewById(R.id.tv1);
-        b1=(TextView) view.findViewById(R.id.b1);
+        about_tv1=view.findViewById(R.id.about_tv1);
+        about_description=view.findViewById(R.id.about_description);
 
         return view;
-
     }
 }

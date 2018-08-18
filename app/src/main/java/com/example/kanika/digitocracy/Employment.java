@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.kanika.digitocracy.Fragments.FragmentEmpclose;
+import com.example.kanika.digitocracy.Fragments.FragmentEmplive;
+
 public class Employment extends AppCompatActivity {
     TextView live_emp,close_emp;
     @Override

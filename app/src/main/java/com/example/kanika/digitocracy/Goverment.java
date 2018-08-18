@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.kanika.digitocracy.Fragments.FragmentGovclose;
+import com.example.kanika.digitocracy.Fragments.FragmentGovlive;
+
 public class Goverment extends AppCompatActivity {
     TextView live_gov,close_gov;
     @Override

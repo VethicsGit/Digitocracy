@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.kanika.digitocracy.Fragments.FragmentpublicLive;
+import com.example.kanika.digitocracy.Fragments.Fragmentpublicclose;
+
 public class Public extends AppCompatActivity {
 
         Button live,close;

@@ -1,4 +1,4 @@
-package com.example.kanika.digitocracy;
+package com.example.kanika.digitocracy.Fragments;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.kanika.digitocracy.R;
 
 public class Fragmentelectricalclose extends Fragment {
 
