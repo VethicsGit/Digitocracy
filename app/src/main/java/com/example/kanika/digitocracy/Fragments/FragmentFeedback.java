@@ -10,11 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-<<<<<<< HEAD:app/src/main/java/com/example/kanika/digitocracy/Fragments/FragmentFeedback.java
 import com.example.kanika.digitocracy.R;
-=======
 import retrofit2.http.HEAD;
->>>>>>> a009ddb44fa023ec20d5d1333f13d1427e403e34:app/src/main/java/com/example/kanika/digitocracy/FragmentFeedback.java
 
 public class FragmentFeedback extends Fragment {
 
@@ -34,10 +31,7 @@ public class FragmentFeedback extends Fragment {
         feedback_submit=view.findViewById(R.id.feedback_submit);
 
 
-<<<<<<< HEAD:app/src/main/java/com/example/kanika/digitocracy/Fragments/FragmentFeedback.java
 
-=======
->>>>>>> a009ddb44fa023ec20d5d1333f13d1427e403e34:app/src/main/java/com/example/kanika/digitocracy/FragmentFeedback.java
         return view;
     }
 }

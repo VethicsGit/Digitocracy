@@ -9,7 +9,7 @@
         android:id="@+id/terms_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Terms & condition"/>
+        android:text="Terms &amp; condition"/>
 
     <TextView
         android:id="@+id/terns_dsecription"
