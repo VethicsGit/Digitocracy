@@ -2,6 +2,7 @@ package com.example.kanika.digitocracy.APISHelper;
 
 import com.example.kanika.digitocracy.APIResponse.ForgotPass.ForgotpassResponse;
 import com.example.kanika.digitocracy.APIResponse.PollCategoryList.PollCategoryList;
+import com.example.kanika.digitocracy.APIResponse.UpdateLocation.UpdateLocationResponse;
 import com.example.kanika.digitocracy.location.LocationResponse;
 import com.example.kanika.digitocracy.APIResponse.login.LoginResponse;
 import com.example.kanika.digitocracy.APIResponse.signup.Responsesignup;
@@ -77,7 +78,7 @@ public interface API {
                                       @Field("phone_number") String phone_number,
                                       @Field("From_name") String From_name);
 
-
+    @FormUrlEncoded
     @POST("User_profile")
     Call<RealResponseBody> User_profile(@Field("user_id") String user_id);
 
@@ -91,12 +92,15 @@ public interface API {
                                                 @Field("Profile_Pic") String profile_pic);
 
 
+    @FormUrlEncoded
+    @POST("update_location")
+    Call<UpdateLocationResponse> Upadate_location(@Field("user_id") String user_id,
+                                                  @Field("lat") String lat,
+                                                  @Field("lng") String lng,
+                                                  @Field("location_address") String location_address,
+                                                  @Header("Authorization") String token
 
-    @POST("Upadate_location")
-    Call<RealResponseBody> Upadate_location(@Field("user_id") String user_id,
-                                                @Field("lat") String lat,
-                                                @Field("lng") String lng,
-                                                @Field("location_address") String location_address);
+    );
 
 
 

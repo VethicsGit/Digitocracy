@@ -54,6 +54,7 @@
 
                 <EditText
                     android:id = "@+id/email"
+                    android:layout_weight="1"
                     android:layout_width = "match_parent"
                     android:layout_height = "wrap_content"
                     android:layout_gravity = "center"
@@ -84,6 +85,7 @@
                     android:src = "@drawable/password" />
 
                 <EditText
+                    android:layout_weight="1"
                     android:id = "@+id/password"
                     android:layout_width = "match_parent"
                     android:layout_height = "wrap_content"

@@ -110,6 +110,7 @@ public class Login extends AppCompatActivity {
                                     editor.putString("user_id",responsee.getUserId());
                                     editor.putString("name",responsee.getName());
                                     editor.putString("gender",responsee.getGender());
+                                    editor.putString("pass",password.getText().toString());
                                     editor.putString("email",responsee.getEmail()).apply();
 
 

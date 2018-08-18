@@ -5,10 +5,13 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.GridLayout;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -27,16 +30,45 @@ import retrofit2.Response;
 
 public class PollCategories extends AppCompatActivity {
 
-    ListView pollCategoryList;
+    GridView pollCategoryList;
     SharedPreferences LoginPref;
 
-    RelativeLayout electricity, employement, transport;
+    RelativeLayout settings, home, blogs, debates;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.poll_categorie);
 
         pollCategoryList = findViewById(R.id.pollCategoryList);
+        settings = findViewById(R.id.setting);
+        home = findViewById(R.id.home);
+        blogs = findViewById(R.id.blogs);
+        debates = findViewById(R.id.debates);
+
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        blogs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        debates.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
         LoginPref = getSharedPreferences("LoginStatus", MODE_PRIVATE);
 
@@ -51,7 +83,9 @@ public class PollCategories extends AppCompatActivity {
                     com.example.kanika.digitocracy.APIResponse.PollCategoryList.Response response1 = resList.get(i);
                     List<com.example.kanika.digitocracy.APIResponse.PollCategoryList.PollCategoryList_> pollList = response1.getPollCategoryList();
 
-                    PollCategoryAdapter adapter=new PollCategoryAdapter(pollList,getApplicationContext());
+                    PollCategoryAdapter adapter = new PollCategoryAdapter(pollList, getApplicationContext());
+                    pollCategoryList.setAdapter(adapter);
+
                 }
 
             }
