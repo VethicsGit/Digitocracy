@@ -29,4 +29,12 @@
         <item name="android:topBright">#00000000</item>
         <item name="android:topDark">#00000000</item>
     </style>
+    
+    <style name="Sbc" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">#1E97C2</item>
+
+        <item name="colorSwitchThumbNormal">#f1f1f1</item>
+        
+        <item name="android:colorForeground">#42221f1f</item>
+    </style>
 </resources>

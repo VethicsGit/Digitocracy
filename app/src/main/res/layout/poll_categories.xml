@@ -150,7 +150,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Water Supply"
-                    android:gravity=""
+                    android:gravity="center"
                     android:layout_alignParentBottom="true"
                     android:textSize="20dp" />
             </RelativeLayout>
