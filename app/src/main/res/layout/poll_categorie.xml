@@ -187,13 +187,14 @@
         </LinearLayout>
     </ScrollView>-->
 
-
-    <GridView
-        android:numColumns="2"
-        android:id="@+id/pollCategoryList"
+    <LinearLayout
+        android:id="@+id/viewpager"
         android:layout_weight="2"
         android:layout_width = "match_parent"
-        android:layout_height = "match_parent"></GridView>
+        android:layout_height = "match_parent"
+        android:orientation = "vertical"></LinearLayout>
+
+
 
 
     <LinearLayout
