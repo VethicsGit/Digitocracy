@@ -22,6 +22,7 @@ import com.bumptech.glide.Glide;
 import com.example.kanika.digitocracy.APIResponse.PollCategoryList.PollCategoryList;
 import com.example.kanika.digitocracy.APISHelper.API;
 import com.example.kanika.digitocracy.APISHelper.APIS;
+import com.example.kanika.digitocracy.Fragments.FragmentBlog;
 import com.example.kanika.digitocracy.Fragments.Fragment_PollCategories;
 
 import java.util.List;
@@ -35,11 +36,13 @@ public class PollCategories extends AppCompatActivity {
 
     RelativeLayout settings, home, blogs, debates;
     LinearLayout viewpager;
+    TextView Title;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.poll_categorie);
 
+        Title = findViewById(R.id.Title);
         settings = findViewById(R.id.setting);
         home = findViewById(R.id.home);
         blogs = findViewById(R.id.blogs);
@@ -51,24 +54,27 @@ public class PollCategories extends AppCompatActivity {
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Title.setText("Settings");
             }
         });
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Title.setText("Home");
                 getSupportFragmentManager().beginTransaction().replace(R.id.viewpager,new Fragment_PollCategories()).commit();
             }
         });
         blogs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Title.setText("Blogs");
+                getSupportFragmentManager().beginTransaction().replace(R.id.viewpager,new FragmentBlog()).commit();
             }
         });
         debates.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Title.setText("Debates");
 
             }
         });
