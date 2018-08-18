@@ -11,12 +11,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:hint="  subject"
+    android:id="@+id/feedback_subject"
     android:background="@drawable/rounded"/>
 
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/feedback_phone"
         android:layout_marginTop="20dp"
         android:hint="  phone no"
         android:background="@drawable/rounded"/>
@@ -27,6 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:hint=" message"
+        android:id="@+id/feedback_meassage"
         android:minLines="6"
         android:gravity="top"
         android:background="@drawable/rounded"/>
@@ -36,6 +39,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/roundedbutton"
         android:textColor="#ffffff"
+        android:id="@+id/feedback_submit"
         android:paddingRight="70dp"
         android:paddingLeft="70dp"
         android:layout_marginTop="20dp"
