@@ -5,7 +5,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">#1E97C2</item>
         <item name="android:typeface">serif</item>
         <item name="android:statusBarColor">#00000000</item>
         <item name="android:windowTranslucentStatus">true</item>
@@ -30,7 +30,7 @@
         <item name="android:topDark">#00000000</item>
     </style>
     
-    <style name="Sbc" parent="Theme.AppCompat.Light">
+    <style name="Sbc">
         <item name="colorControlActivated">#1E97C2</item>
 
         <item name="colorSwitchThumbNormal">#f1f1f1</item>
