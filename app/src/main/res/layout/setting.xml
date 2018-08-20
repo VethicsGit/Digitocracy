@@ -59,13 +59,14 @@
             android:orientation="vertical"
             android:layout_marginLeft="20dp"
             android:layout_width = "match_parent"
+            android:textSize="22dp"
             android:layout_height = "match_parent">
         <TableRow android:layout_weight="1">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:textSize="25dp"
+            android:textSize="22dp"
             android:text="About Us"/>
         </TableRow>
             <TableRow>
@@ -101,7 +102,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="25dp"
+            android:textSize="22dp"
             android:layout_gravity="center_vertical"
             android:text="Send Feedback"/>
         </TableRow>
@@ -140,7 +141,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:textSize="25dp"
+        android:textSize="22dp"
         android:text="Privacy Policy"/>
         </TableRow>
             <TableRow>
@@ -179,7 +180,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:textSize="25dp"
+            android:textSize="22dp"
             android:text="Terms of Uss"/>
         </TableRow>
             <TableRow>
@@ -220,7 +221,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:textSize="25dp"
+            android:textSize="22dp"
             android:text="Rate App"/>
         </TableRow>
             <TableRow>
@@ -256,7 +257,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:textSize="25dp"
+            android:textSize="22dp"
 
             android:text="Invite Friends"/>
         </TableRow>
@@ -294,7 +295,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:textSize="25dp"
+            android:textSize="22dp"
             android:text="Logout"/>
         </TableRow>
             <TableRow>
