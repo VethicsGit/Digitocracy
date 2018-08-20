@@ -1,20 +1,22 @@
 package com.example.kanika.digitocracy.APISHelper;
 
+import com.example.kanika.digitocracy.APIResponse.Aboutus.Aboutus;
 import com.example.kanika.digitocracy.APIResponse.BlogList.BlogListResponse;
 import com.example.kanika.digitocracy.APIResponse.ForgotPass.ForgotpassResponse;
 import com.example.kanika.digitocracy.APIResponse.PollCategoryList.PollCategoryList;
+import com.example.kanika.digitocracy.APIResponse.PrivacyPolice.PrivacyPolicy;
+
+import com.example.kanika.digitocracy.APIResponse.Termsofuse.Termsofuse;
 import com.example.kanika.digitocracy.APIResponse.UpdateLocation.UpdateLocationResponse;
 import com.example.kanika.digitocracy.location.LocationResponse;
 import com.example.kanika.digitocracy.APIResponse.login.LoginResponse;
 import com.example.kanika.digitocracy.APIResponse.signup.Responsesignup;
 
-import okhttp3.ResponseBody;
 import okhttp3.internal.http.RealResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.Header;
-import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 public interface API {
@@ -25,13 +27,13 @@ public interface API {
 
     @FormUrlEncoded
     @POST("Privacy_Policy")
-    Call<ResponseBody> Privacy_Policy(@Field("name") String name, @Field("email") String email, @Field("password") String password);
+    Call<PrivacyPolicy> Privacy_Policy(@Field("name") String name);
 
     @POST("About_US")
-    Call<RealResponseBody> About_Us(@Field("name") String name, @Field("email") String email, @Field("password") String password);
+    Call<Aboutus> About_Us(String s);
 
     @POST("Terms_and_condition")
-    Call<RealResponseBody> Terms_and_condition(@Field("name") String name, @Field("email") String email, @Field("password") String password);
+    Call<Termsofuse> Terms_and_condition(@Field("name") String name);
 
     @POST("Resend_verification_email")
     Call<RealResponseBody> Resend_verification_email(@Field("email") String email);

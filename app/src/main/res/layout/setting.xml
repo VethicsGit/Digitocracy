@@ -170,7 +170,7 @@
             android:layout_width="44dp"
             android:layout_height="40dp"
             android:layout_marginLeft="5dp"
-            android:src="@drawable/invite_gradient" />
+            android:src="@drawable/terms_gradient" />
 
         <TableLayout
             android:layout_gravity="center"
@@ -185,7 +185,7 @@
             android:layout_weight="1"
             android:layout_gravity="center_vertical"
             android:textSize="22dp"
-            android:text="Terms of Uss"/>
+            android:text="Terms of Use"/>
         </TableRow>
             <TableRow>
                 <View
@@ -200,6 +200,44 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/setting_invitefriends"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="44dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/invite_gradient" />
+        <TableLayout
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_width = "match_parent"
+            android:layout_height = "match_parent">
+            <TableRow android:layout_weight="1">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="22dp"
+
+                    android:text="Invite Friends"/>
+            </TableRow>
+            <TableRow>
+                <View
+                    android:layout_weight="1"
+                    android:layout_gravity="bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="2dp"
+                    android:background="#e0e0e0"/>
+            </TableRow>
+        </TableLayout>
+
+    </LinearLayout>
 
 
     <LinearLayout
@@ -240,44 +278,6 @@
         </TableLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/setting_invitefriends"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="44dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="5dp"
-            android:src="@drawable/invite_gradient" />
-        <TableLayout
-            android:layout_gravity="center"
-            android:orientation="vertical"
-            android:layout_marginLeft="20dp"
-            android:layout_width = "match_parent"
-            android:layout_height = "match_parent">
-        <TableRow android:layout_weight="1">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical"
-            android:textSize="22dp"
-
-            android:text="Invite Friends"/>
-        </TableRow>
-            <TableRow>
-                <View
-                    android:layout_weight="1"
-                    android:layout_gravity="bottom"
-                    android:layout_width="wrap_content"
-                    android:layout_height="2dp"
-                    android:background="#e0e0e0"/>
-            </TableRow>
-        </TableLayout>
-
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/setting_logout"
