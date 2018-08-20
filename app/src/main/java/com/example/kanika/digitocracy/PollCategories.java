@@ -37,7 +37,7 @@ public class PollCategories extends AppCompatActivity {
 
     RelativeLayout settings, home, blogs, debates;
     LinearLayout viewpager;
-    TextView Title;
+    public TextView Title;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -120,5 +120,9 @@ public class PollCategories extends AppCompatActivity {
             }
         });*/
     }
+  /*  public void setTitle(String title){
+//        ((TextView)findViewById(R.id.Title)).setText(title);
+        getSupportActionBar().setTitle(title);
+    }*/
 }
 

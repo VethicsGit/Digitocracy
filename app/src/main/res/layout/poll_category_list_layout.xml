@@ -10,7 +10,7 @@
 <ImageView
     android:id="@+id/poll_cate_list_img"
     android:layout_width="match_parent"
-    android:layout_height="132dp"
+    android:layout_height="92dp"
     android:padding="10dp"
     android:layout_margin="30dp"
     android:src="@drawable/water_supply" />

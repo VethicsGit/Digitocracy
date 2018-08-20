@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide;
 import com.example.kanika.digitocracy.APIResponse.PollCategoryList.PollCategoryList;
 import com.example.kanika.digitocracy.APISHelper.API;
 import com.example.kanika.digitocracy.APISHelper.APIS;
+import com.example.kanika.digitocracy.PollCategories;
 import com.example.kanika.digitocracy.R;
 
 import java.util.List;
@@ -30,12 +31,15 @@ public class Fragment_PollCategories extends Fragment {
 
     GridView pollCategoryList;
     SharedPreferences LoginPref;
+    TextView title;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v=inflater.inflate(R.layout.fragment_poll_categories,container,false);
         pollCategoryList = v.findViewById(R.id.pollCategoryList);
+//       new PollCategories().setTitle("Home");
+
 
         LoginPref = getContext().getSharedPreferences("LoginStatus", Context.MODE_PRIVATE);
 
