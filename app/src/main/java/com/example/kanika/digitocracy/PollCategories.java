@@ -50,13 +50,13 @@ public class PollCategories extends AppCompatActivity {
         debates = findViewById(R.id.debates);
         viewpager = findViewById(R.id.viewpager);
 
-        final FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
 
-        ft.replace(R.id.viewpager,new Fragment_PollCategories()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.viewpager,new Fragment_PollCategories()).commit();
 
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
                 Title.setText("Settings");
                 ft.addToBackStack("Dashboard");
                 ft.replace(R.id.viewpager,new Setting()).commit();
@@ -65,6 +65,7 @@ public class PollCategories extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
                 Title.setText("Home");
                 ft.addToBackStack("Dashboard");
                 ft.replace(R.id.viewpager,new Fragment_PollCategories()).commit();
@@ -73,6 +74,7 @@ public class PollCategories extends AppCompatActivity {
         blogs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
                 Title.setText("Blogs");
                 ft.addToBackStack("Dashboard");
                 ft.replace(R.id.viewpager,new FragmentBlog()).commit();
@@ -81,6 +83,7 @@ public class PollCategories extends AppCompatActivity {
         debates.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
                 Title.setText("Debates");
                 ft.addToBackStack("Dashboard");
 

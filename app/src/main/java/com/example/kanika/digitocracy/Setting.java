@@ -49,7 +49,7 @@ public class Setting extends Fragment {
                 Fragment fragment=new FragmentEditprofile();
 android.support.v4.app.FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
 fragmentTransaction.replace(R.id.viewpager,fragment);
-                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.addToBackStack("setting");
                 fragmentTransaction.commit();
 
             }

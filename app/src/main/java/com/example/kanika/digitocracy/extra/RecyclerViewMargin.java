@@ -30,8 +30,8 @@ public class RecyclerViewMargin extends RecyclerView.ItemDecoration {
 
         int position = parent.getChildLayoutPosition(view);
         //set right margin to all
-        outRect.right = margin;
-        outRect.left = margin;
+       /* outRect.right = margin;
+        outRect.left = margin;*/
 
         //set bottom margin to all
         outRect.bottom = margin;

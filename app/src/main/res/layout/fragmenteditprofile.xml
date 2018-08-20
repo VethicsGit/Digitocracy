@@ -25,7 +25,7 @@
     <View
         android:layout_width="match_parent"
         android:background="#D4D4D4"
-        android:layout_height="1dp"></View>
+        android:layout_height="1dp"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -38,10 +38,10 @@
         android:layout_height="wrap_content"
         android:text="GENDER"/>
 
-    <view
+    <View
         android:layout_width="match_parent"
         android:background="#D4D4D4"
-        android:layout_height="1dp"></view>
+        android:layout_height="1dp"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -68,15 +68,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/Sbc"
-            android:layout_gravity="end"/>
+            android:layout_gravity="center_vertical|end"/>
     </LinearLayout>
         
-        <view
+        <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#D4D4D4">
+            android:background="#D4D4D4"/>
 
-        </view>
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">

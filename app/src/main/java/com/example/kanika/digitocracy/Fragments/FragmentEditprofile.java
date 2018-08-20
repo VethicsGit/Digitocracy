@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.kanika.digitocracy.R;
 
@@ -17,12 +18,16 @@ public class FragmentEditprofile extends Fragment {
 
     ImageView img;
     EditText editprofile_name, editprofile_gender;
-    Button notification,editprofile_chang_pw,editprofile_update;
+    Button editprofile_chang_pw,editprofile_update;
+    View view;
+    TextView notification;
+
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-       View view=inflater.inflate(R.layout.fragmenteditprofile,container,false);
+       view=inflater.inflate(R.layout.fragmenteditprofile,container,false);
 
         img=view.findViewById(R.id.profile_image);
         editprofile_name=view.findViewById(R.id.editprofile_name);
