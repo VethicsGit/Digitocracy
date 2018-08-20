@@ -55,6 +55,7 @@ public class PollCategories extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Title.setText("Settings");
+                getSupportFragmentManager().beginTransaction().replace(R.id.viewpager,new Setting()).commit();
             }
         });
         home.setOnClickListener(new View.OnClickListener() {

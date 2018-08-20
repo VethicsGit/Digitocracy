@@ -117,6 +117,8 @@
             android:text="Terms of Uss"/>
 
     </LinearLayout>
+
+
     <View
         android:layout_width="wrap_content"
         android:layout_height="2dp"></View>
@@ -138,6 +140,29 @@
             android:textSize="25dp"
             android:layout_marginLeft="20dp"
             android:text="Rate App"/>
+
+    </LinearLayout>
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"></View>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/setting_invitefriends"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="44dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/invite_gradient" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="25dp"
+            android:layout_marginLeft="20dp"
+            android:text="Invite Friends"/>
 
     </LinearLayout>
     <View
