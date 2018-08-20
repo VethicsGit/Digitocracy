@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.view.LayoutInflater;
@@ -49,33 +50,39 @@ public class PollCategories extends AppCompatActivity {
         debates = findViewById(R.id.debates);
         viewpager = findViewById(R.id.viewpager);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.viewpager,new Fragment_PollCategories()).commit();
+        final FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+
+        ft.replace(R.id.viewpager,new Fragment_PollCategories()).commit();
 
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Title.setText("Settings");
-                getSupportFragmentManager().beginTransaction().replace(R.id.viewpager,new Setting()).commit();
+                ft.addToBackStack("Dashboard");
+                ft.replace(R.id.viewpager,new Setting()).commit();
             }
         });
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Title.setText("Home");
-                getSupportFragmentManager().beginTransaction().replace(R.id.viewpager,new Fragment_PollCategories()).commit();
+                ft.addToBackStack("Dashboard");
+                ft.replace(R.id.viewpager,new Fragment_PollCategories()).commit();
             }
         });
         blogs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Title.setText("Blogs");
-                getSupportFragmentManager().beginTransaction().replace(R.id.viewpager,new FragmentBlog()).commit();
+                ft.addToBackStack("Dashboard");
+                ft.replace(R.id.viewpager,new FragmentBlog()).commit();
             }
         });
         debates.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Title.setText("Debates");
+                ft.addToBackStack("Dashboard");
 
             }
         });
