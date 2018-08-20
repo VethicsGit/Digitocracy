@@ -1,131 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
-    android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"  android:layout_height="match_parent">
+<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+    android:layout_width = "match_parent"
+    android:layout_height = "match_parent"
+    android:orientation = "vertical">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:orientation="vertical"
-        android:layout_alignParentLeft="true">
+    <ScrollView
+        android:layout_weight="1"
+        android:layout_width = "match_parent"
+        android:layout_height = "match_parent">
 
-
-        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/profile_image"
-            android:layout_width="96dp"
-            android:layout_height="96dp"
-            android:layout_gravity="center"
-            android:src="@drawable/tweety"
-            app:civ_border_color="#FF000000"
-            app:civ_border_width="2dp" />
+        <LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+            android:layout_width = "match_parent"
+            android:layout_height = "match_parent"
+            android:layout_alignParentLeft = "true"
+            android:layout_alignParentStart = "true"
+            android:layout_alignParentTop = "true"
+            android:orientation = "vertical">
 
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:textStyle="bold"
-            android:padding="10dp"
-            android:text="NAME" />
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app = "http://schemas.android.com/apk/res-auto"
+                android:id = "@+id/profile_image"
+                android:layout_width = "96dp"
+                android:layout_height = "96dp"
+                android:layout_gravity = "center"
+                android:layout_marginTop = "10dp"
+                android:src = "@drawable/tweety"
+                app:civ_border_color = "#FF000000"
+                app:civ_border_width = "2dp" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#D4D4D4" />
-
-        <EditText
-            android:id="@+id/editprofile_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="name"
-            android:padding="10dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:textStyle="bold"
-            android:text="GENDER" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#D4D4D4" />
-
-        <EditText
-            android:id="@+id/editprofile_gender"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="gender"
-            android:padding="10dp" />
-
-        <TextView
-            android:id="@+id/editprofile_notification"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:textStyle="bold"
-            android:text="NOTIFICATION" />
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="Receive notification" />
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:layout_marginTop = "20dp"
+                android:padding = "10dp"
+                android:text = "NAME"
+                android:textStyle = "bold" />
 
-            <Switch
-                style="@style/Sbc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|end" />
+            <View
+                android:layout_width = "match_parent"
+                android:layout_height = "1dp"
+                android:background = "#D4D4D4" />
+
+            <EditText
+                android:id = "@+id/editprofile_name"
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:hint = "name"
+                android:padding = "10dp" />
+
+            <TextView
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:padding = "10dp"
+                android:text = "GENDER"
+                android:textStyle = "bold" />
+
+            <View
+                android:layout_width = "match_parent"
+                android:layout_height = "1dp"
+                android:background = "#D4D4D4" />
+
+            <EditText
+                android:id = "@+id/editprofile_gender"
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:hint = "gender"
+                android:padding = "10dp" />
+
+            <TextView
+                android:id = "@+id/editprofile_notification"
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:padding = "10dp"
+                android:text = "NOTIFICATION"
+                android:textStyle = "bold" />
+
+
+            <LinearLayout
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content">
+
+                <TextView
+                    android:layout_width = "wrap_content"
+                    android:layout_height = "wrap_content"
+                    android:padding = "10dp"
+                    android:text = "Receive notification" />
+
+                <Switch
+                    style = "@style/Sbc"
+                    android:layout_width = "match_parent"
+                    android:layout_height = "wrap_content"
+                    android:layout_gravity = "center_vertical|end" />
+            </LinearLayout>
+
+            <View
+                android:layout_width = "match_parent"
+                android:layout_height = "1dp"
+                android:background = "#D4D4D4" />
+
         </LinearLayout>
+    </ScrollView>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#D4D4D4" />
+    <RelativeLayout
+        android:layout_weight="3"
+        android:layout_width = "match_parent"
+        android:layout_height = "match_parent">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <Button
+            android:id = "@+id/editprofile_upadte"
+            android:layout_width = "220dp"
+            android:layout_height = "45dp"
+            android:layout_above = "@id/editprofile_change_pw"
+            android:layout_centerInParent = "true"
+            android:layout_gravity = "center"
+            android:layout_marginLeft = "40dp"
+            android:layout_marginRight = "40dp"
+            android:background = "@drawable/blue_round_corner"
+            android:text = "Update"
+            android:textAllCaps = "false"
+            android:textColor = "#FFFFFF"
+            android:textSize = "18dp"
+            android:textStyle = "bold" />
 
-            <Button
-                android:id="@+id/editprofile_upadte"
-                android:background="@drawable/blue_round_corner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_above="@id/editprofile_change_pw"
-                android:layout_centerInParent="true"
-                android:layout_gravity="center"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:text="Update"
-                android:textColor="#FFFFFF" />
+        <Button
+            android:id = "@+id/editprofile_change_pw"
+            android:layout_width = "220dp"
+            android:layout_height = "45dp"
+            android:layout_alignParentBottom = "true"
+            android:layout_centerInParent = "true"
+            android:layout_marginBottom = "10dp"
+            android:layout_marginLeft = "40dp"
+            android:layout_marginRight = "40dp"
+            android:layout_marginTop = "10dp"
+            android:background = "@drawable/blue_round_corner"
+            android:text = "Change Password"
+            android:textAllCaps = "false"
+            android:textColor = "#ffffff"
+            android:textSize = "18dp"
+            android:textStyle = "bold" />
+    </RelativeLayout>
 
-            <Button
-                android:id="@+id/editprofile_change_pw"
-                android:background="@drawable/blue_round_corner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerInParent="true"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:layout_marginTop="10dp"
-                android:text="Change Password"
-                android:textColor="#ffffff" />
-        </RelativeLayout>
-    </LinearLayout>
-</RelativeLayout>
+</LinearLayout>
 
 
 
