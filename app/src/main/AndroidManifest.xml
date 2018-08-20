@@ -32,6 +32,7 @@
         <activity android:name = ".Employment" />
         <activity android:name = ".ForgotPassword"></activity>
         <activity android:name = ".Fragments.FragmentEditprofile"></activity>
+        <activity android:name = ".Polling.ActivityPollingMain"></activity>
     </application>
 
 </manifest>

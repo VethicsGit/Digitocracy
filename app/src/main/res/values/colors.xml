@@ -13,6 +13,7 @@
     <color name="dot_active_screen1">#AEB9C0</color>
     <color name="dot_active_screen2">#AEB9C0</color>
     <color name="dot_active_screen3">#AEB9C0</color>
+    <color name = "clr">#00b9ee</color>
 <color name="skyblue">#1E97C2</color>
 
     <array name="array_dot_active">

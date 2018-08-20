@@ -26,10 +26,10 @@ public class Fragmentelectricallive extends Fragment {
         View view = inflater.inflate(R.layout.frgamentelectricallive,container,false);
 
 
-        elc_group=(RadioGroup)view.findViewById(R.id.elc_group);
+     /*   elc_group=(RadioGroup)view.findViewById(R.id.elc_group);
         elc_days=(TextView)view.findViewById(R.id.elc_days);
         elc_vote=(TextView)view.findViewById(R.id.elc_vote);
-        elc_more=(TextView)view.findViewById(R.id.elc_more);
+        elc_more=(TextView)view.findViewById(R.id.elc_more);*/
 
 
         return view;

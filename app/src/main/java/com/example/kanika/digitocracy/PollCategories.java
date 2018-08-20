@@ -66,7 +66,7 @@ public class PollCategories extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
-                Title.setText("Home");
+                Title.setText("Poll Categories");
                 ft.addToBackStack("Dashboard");
                 ft.replace(R.id.viewpager,new Fragment_PollCategories()).commit();
             }

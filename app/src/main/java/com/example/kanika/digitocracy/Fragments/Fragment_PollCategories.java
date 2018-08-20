@@ -1,6 +1,7 @@
 package com.example.kanika.digitocracy.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -18,7 +19,7 @@ import com.bumptech.glide.Glide;
 import com.example.kanika.digitocracy.APIResponse.PollCategoryList.PollCategoryList;
 import com.example.kanika.digitocracy.APISHelper.API;
 import com.example.kanika.digitocracy.APISHelper.APIS;
-import com.example.kanika.digitocracy.PollCategories;
+import com.example.kanika.digitocracy.Polling.ActivityPollingMain;
 import com.example.kanika.digitocracy.R;
 
 import java.util.List;
@@ -99,13 +100,23 @@ class PollCategoryAdapter extends BaseAdapter {
         View v = LayoutInflater.from(context).inflate(R.layout.poll_category_list_layout, viewGroup, false);
 
         ImageView image = v.findViewById(R.id.poll_cate_list_img);
-        TextView txt = v.findViewById(R.id.poll_cate_list_txt);
-        TextView txt_id = v.findViewById(R.id.poll_cate_list_txtid);
+        final TextView txt = v.findViewById(R.id.poll_cate_list_txt);
+        final TextView txt_id = v.findViewById(R.id.poll_cate_list_txtid);
 
         com.example.kanika.digitocracy.APIResponse.PollCategoryList.PollCategoryList_ poll = pollList.get(i);
         Glide.with(context).load(poll.getPollCategoryIcon()).into(image);
         txt.setText(poll.getPollCategoryTitle());
         txt_id.setText(poll.getPollCategoryId());
+
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(context,ActivityPollingMain.class);
+                i.putExtra("name",txt.getText().toString());
+                i.putExtra("id",Integer.parseInt(txt_id.getText().toString()));
+                context.startActivity(i);
+            }
+        });
 
         return v;
     }

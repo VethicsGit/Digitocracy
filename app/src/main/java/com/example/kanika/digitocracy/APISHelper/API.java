@@ -3,6 +3,10 @@ package com.example.kanika.digitocracy.APISHelper;
 import com.example.kanika.digitocracy.APIResponse.BlogList.BlogListResponse;
 import com.example.kanika.digitocracy.APIResponse.ForgotPass.ForgotpassResponse;
 import com.example.kanika.digitocracy.APIResponse.PollCategoryList.PollCategoryList;
+import com.example.kanika.digitocracy.APIResponse.PollDetails_response.PollDetail;
+import com.example.kanika.digitocracy.APIResponse.PollDetails_response.PollDetailsResponse;
+import com.example.kanika.digitocracy.APIResponse.PollList_Response.PollListResponse;
+import com.example.kanika.digitocracy.APIResponse.PollVoteResponse.PollVoteResponse;
 import com.example.kanika.digitocracy.APIResponse.UpdateLocation.UpdateLocationResponse;
 import com.example.kanika.digitocracy.location.LocationResponse;
 import com.example.kanika.digitocracy.APIResponse.login.LoginResponse;
@@ -84,13 +88,25 @@ public interface API {
     @POST("blog_details")
     Call<RealResponseBody> blog_details(@Field("user_id") String user_id, @Field("blog_is") String blog_is);
 
+    @FormUrlEncoded
     @POST("Poll_list")
-    Call<RealResponseBody> Poll_list(@Field("user_id") String user_id, @Field("offset") String offset, @Field("type") String type, @Field("poll_category_id") String poll_category_id);
+    Call<PollListResponse> Poll_list(@Field("user_id") String user_id,
+                                     @Field("offset") int offset,
+                                     @Field("type") String type,
+                                     @Field("poll_category_id") int poll_category_id,
+                                     @Header("Authorization") String token);
 
+    @FormUrlEncoded
     @POST("send_vote_on_poll")
-    Call<RealResponseBody> send_vote_on_poll(@Field("user_id") String user_id, @Field("poll_id") String poll_id, @Field("poll_option_id") String poll_option_id);
+    Call<PollVoteResponse> send_vote_on_poll(@Field("user_id") String user_id,
+                                             @Field("poll_id") String poll_id,
+                                             @Field("poll_option_id") String poll_option_id,
+                                             @Header("Authorization") String token);
 
+    @FormUrlEncoded
     @POST("poll_details")
-    Call<RealResponseBody> poll_details(@Field("user_id") String user_id, @Field("poll_id") String poll_id);
+    Call<PollDetailsResponse> poll_details(@Field("user_id") String user_id,
+                                           @Field("poll_id") int poll_id,
+                                           @Header("Authorization") String token);
 
 }

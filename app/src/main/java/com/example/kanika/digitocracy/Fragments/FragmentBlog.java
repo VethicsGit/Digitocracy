@@ -7,8 +7,10 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +38,8 @@ public class FragmentBlog extends Fragment {
 
     int offset = 0;
     BlogAdapter blogAdapter;
+    private boolean isLoading = false;
+    SwipeRefreshLayout mSwipeRefreshLayout;
 
     @Nullable
     @Override
@@ -47,52 +51,23 @@ public class FragmentBlog extends Fragment {
         blog_recyclar_view.setLayoutManager(manager);
 
         if (offset==0) {
-            RecyclerViewMargin decoration = new RecyclerViewMargin(10, 2);
-            blog_recyclar_view.addItemDecoration(decoration);
-
-            LoginPref = getContext().getSharedPreferences("LoginStatus", Context.MODE_PRIVATE);
-            final ProgressDialog mProgressDialog = new ProgressDialog(getContext());
-            mProgressDialog.setIndeterminate(false);
-            mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-            mProgressDialog.setCancelable(false);
-            mProgressDialog.setMessage("Please wait...");
-            mProgressDialog.show();
-
-            API apiService = APIS.getRetrofit().create(API.class);
-            Call<BlogListResponse> call1 = apiService.blog_list(LoginPref.getString("user_id", ""), offset, "", LoginPref.getString("token", ""));
-
-            call1.enqueue(new Callback<BlogListResponse>() {
-                @Override
-                public void onResponse(@NonNull Call<BlogListResponse> call, @NonNull Response<BlogListResponse> response) {
-                    mProgressDialog.dismiss();
-                    BlogListResponse blogListResponse = response.body();
-                    List<com.example.kanika.digitocracy.APIResponse.BlogList.Response> resList = blogListResponse.getResponse();
-                    for (int i = 0; i < resList.size(); i++) {
-                        com.example.kanika.digitocracy.APIResponse.BlogList.Response re = resList.get(i);
-                        if (re.getStatus().equals("true")) {
-                            offset = re.getOffset();
-
-                            List<BlogList> blogLists = re.getBlogList();
-                            blogAdapter = new BlogAdapter(blogLists, getContext());
-                            blog_recyclar_view.setAdapter(blogAdapter);
-                        } else {
-                            mProgressDialog.dismiss();
-                        }
-
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<BlogListResponse> call, Throwable t) {
-                    Toast.makeText(getContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
-                }
-            });
+           LoadFirstItem();
         }
+
+       mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_container);
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                offset=0;
+                LoadFirstItem();
+            }
+        });
 
         blog_recyclar_view.addOnScrollListener(new PaginationScrollListener(manager,getContext()) {
             @Override
             protected void loadMoreItems() {
                 ServiceCall();
+                isLoading=true;
             }
 
             @Override
@@ -107,17 +82,67 @@ public class FragmentBlog extends Fragment {
 
             @Override
             public boolean isLoading() {
-                return false;
+                return isLoading;
             }
         });
 
         return view;
     }
 
+    public void LoadFirstItem(){
+        RecyclerViewMargin decoration = new RecyclerViewMargin(10, 2);
+        blog_recyclar_view.addItemDecoration(decoration);
+
+        LoginPref = getContext().getSharedPreferences("LoginStatus", Context.MODE_PRIVATE);
+        final ProgressDialog mProgressDialog = new ProgressDialog(getContext());
+        mProgressDialog.setIndeterminate(false);
+        mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        mProgressDialog.setCancelable(false);
+        mProgressDialog.setMessage("Loading...");
+        mProgressDialog.show();
+
+        API apiService = APIS.getRetrofit().create(API.class);
+        Call<BlogListResponse> call1 = apiService.blog_list(LoginPref.getString("user_id", ""), offset, "", LoginPref.getString("token", ""));
+
+        call1.enqueue(new Callback<BlogListResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<BlogListResponse> call, @NonNull Response<BlogListResponse> response) {
+                mProgressDialog.dismiss();
+                BlogListResponse blogListResponse = response.body();
+                List<com.example.kanika.digitocracy.APIResponse.BlogList.Response> resList = blogListResponse.getResponse();
+                for (int i = 0; i < resList.size(); i++) {
+                    com.example.kanika.digitocracy.APIResponse.BlogList.Response re = resList.get(i);
+                    if (re.getStatus().equals("true")) {
+                        offset = re.getOffset();
+
+                        List<BlogList> blogLists = re.getBlogList();
+                        blogAdapter = new BlogAdapter(blogLists, getContext());
+                        blog_recyclar_view.setAdapter(blogAdapter);
+                        Log.e("_Offset",String.valueOf(offset));
+                        mSwipeRefreshLayout.setRefreshing(false);
+                    } else {
+                        mProgressDialog.dismiss();
+                    }
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BlogListResponse> call, Throwable t) {
+                Toast.makeText(getContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
     public void ServiceCall() {
 
         LoginPref = getContext().getSharedPreferences("LoginStatus", Context.MODE_PRIVATE);
-
+        final ProgressDialog mProgressDialog = new ProgressDialog(getContext());
+        mProgressDialog.setIndeterminate(false);
+        mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        mProgressDialog.setCancelable(false);
+        mProgressDialog.setMessage("Loading...");
+        mProgressDialog.show();
         API apiService = APIS.getRetrofit().create(API.class);
         Call<BlogListResponse> call1 = apiService.blog_list(LoginPref.getString("user_id", ""), offset, "", LoginPref.getString("token", ""));
 
@@ -134,7 +159,11 @@ public class FragmentBlog extends Fragment {
                         for (int x = 0; x < blogLists.size(); x++)
                             blogAdapter.add(blogLists.get(x));
                         blogAdapter.notifyDataSetChanged();
+                        mProgressDialog.dismiss();
+                        Log.e("_Offset",String.valueOf(offset));
+                        isLoading=false;
                     }else {
+                        mProgressDialog.dismiss();
                         Toast.makeText(getContext(), "This is the end", Toast.LENGTH_SHORT).show();
                     }
 
@@ -143,7 +172,8 @@ public class FragmentBlog extends Fragment {
 
             @Override
             public void onFailure(Call<BlogListResponse> call, Throwable t) {
-
+                Toast.makeText(getContext(), "Something broken in the way.", Toast.LENGTH_SHORT).show();
+mProgressDialog.dismiss();
             }
         });
     }
