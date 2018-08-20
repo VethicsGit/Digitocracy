@@ -175,7 +175,7 @@
             android:layout_width="44dp"
             android:layout_height="40dp"
             android:layout_marginLeft="5dp"
-            android:src="@drawable/invite_gradient" />
+            android:src="@drawable/terms_gradient" />
 
         <TableLayout
             android:layout_gravity="center"
@@ -245,6 +245,7 @@
 
     </LinearLayout>
 
+
     <LinearLayout
         android:layout_margin="5dp"
         android:layout_width="match_parent"
@@ -285,7 +286,10 @@
     </LinearLayout>
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 129edda8804a68da4926a19acfee3cdf93726064
     <LinearLayout
         android:layout_margin="5dp"
         android:id="@+id/setting_logout"
