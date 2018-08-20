@@ -1,6 +1,7 @@
 package com.example.kanika.digitocracy.Fragments;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
@@ -21,7 +22,7 @@ public class FragmentEditprofile extends AppCompatActivity {
     Spinner editprofile_gender;
     EditText editprofile_name;
     Button editprofile_chang_pw,editprofile_update;
-    TextView notification;
+    TextView notification,editprofile_email;
 
 
     @Override
@@ -31,9 +32,19 @@ public class FragmentEditprofile extends AppCompatActivity {
         img=findViewById(R.id.profile_image);
         editprofile_name=findViewById(R.id.editprofile_name);
         editprofile_gender=findViewById(R.id.editprofile_gender);
+        editprofile_email=findViewById(R.id.editprofile_email);
         notification=findViewById(R.id.editprofile_notification);
         editprofile_chang_pw=findViewById(R.id.editprofile_change_pw);
         editprofile_update=findViewById(R.id.editprofile_upadte);
+
+
+        SharedPreferences sharedPreferences = getSharedPreferences("Mypref",MODE_PRIVATE);
+        SharedPreferences.Editor editor =sharedPreferences.edit();
+        editprofile_name.setText(sharedPreferences.getString("name",""));
+        editprofile_email.setText(sharedPreferences.getString("email",""));
+        editor.commit();
+
+
     }
 /*
     @Nullable
