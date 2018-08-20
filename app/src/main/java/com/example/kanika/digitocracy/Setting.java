@@ -46,11 +46,12 @@ public class Setting extends Fragment {
         setting_editprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment fragment=new FragmentEditprofile();
+            /*    Fragment fragment=new FragmentEditprofile();
 android.support.v4.app.FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
 fragmentTransaction.replace(R.id.viewpager,fragment);
                 fragmentTransaction.addToBackStack("setting");
-                fragmentTransaction.commit();
+                fragmentTransaction.commit();*/
+            startActivity(new Intent(getContext(),FragmentEditprofile.class));
 
             }
         });
