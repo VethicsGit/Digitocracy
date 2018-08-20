@@ -1,6 +1,9 @@
 package com.example.kanika.digitocracy;
 
 import android.app.FragmentTransaction;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -45,7 +48,7 @@ public class Setting extends Fragment {
             public void onClick(View view) {
                 Fragment fragment=new FragmentEditprofile();
 android.support.v4.app.FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-fragmentTransaction.replace(R.id.fragment_container,fragment);
+fragmentTransaction.replace(R.id.viewpager,fragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
 
@@ -58,7 +61,7 @@ fragmentTransaction.replace(R.id.fragment_container,fragment);
 
                 Fragment fragment = new FragmentAboutus();
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_container,fragment);
+                fragmentTransaction.replace(R.id.viewpager,fragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
 
@@ -69,7 +72,7 @@ fragmentTransaction.replace(R.id.fragment_container,fragment);
             public void onClick(View view) {
                 Fragment fragment = new FragmentFeedback();
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_container,fragment);
+                fragmentTransaction.replace(R.id.viewpager,fragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
@@ -80,7 +83,7 @@ fragmentTransaction.replace(R.id.fragment_container,fragment);
             public void onClick(View view) {
                 Fragment fragment = new FragmentPrivacyPolice();
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_container,fragment);
+                fragmentTransaction.replace(R.id.viewpager,fragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
@@ -91,7 +94,7 @@ fragmentTransaction.replace(R.id.fragment_container,fragment);
             public void onClick(View view) {
                 Fragment fragment = new FragmentTermsofuse();
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_container,fragment);
+                fragmentTransaction.replace(R.id.viewpager,fragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
@@ -101,7 +104,11 @@ fragmentTransaction.replace(R.id.fragment_container,fragment);
             @Override
             public void onClick(View view) {
 
-
+                Intent i=new Intent(android.content.Intent.ACTION_SEND);
+                i.setType("text/plain");
+                i.putExtra(android.content.Intent.EXTRA_SUBJECT,"Subject test");
+                i.putExtra(android.content.Intent.EXTRA_TEXT, "extra text that you want to put");
+                startActivity(Intent.createChooser(i,"Share via"));
 
             }
         });
@@ -109,6 +116,20 @@ fragmentTransaction.replace(R.id.fragment_container,fragment);
         setting_rateapp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+                Uri uri = Uri.parse("market://details?id=" + getContext().getPackageName());
+                Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+
+                goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
+                        Intent.FLAG_ACTIVITY_NEW_DOCUMENT |
+                        Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+                try {
+                    startActivity(goToMarket);
+                } catch (ActivityNotFoundException e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("http://play.google.com/store/apps/details?id=" + getContext().getPackageName())));
+                }
 
             }
         });
