@@ -45,13 +45,13 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:id="@+id/setting_aboutus"
         android:orientation="horizontal">
 
         <ImageView
             android:layout_width="44dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginLeft="5dp"
             android:src="@drawable/aboutuss_gradient" />
         <TableLayout
@@ -63,8 +63,9 @@
             android:layout_height = "match_parent">
         <TableRow android:layout_weight="1">
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:layout_gravity="center_vertical"
             android:textSize="22dp"
             android:text="About Us"/>
@@ -84,12 +85,12 @@
     <LinearLayout
         android:id="@+id/setting_feedback"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <ImageView
             android:layout_width="44dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginLeft="5dp"
             android:src="@drawable/feedback_gradient" />
         <TableLayout
@@ -100,8 +101,9 @@
             android:layout_height = "match_parent">
         <TableRow android:layout_weight="1">
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:textSize="22dp"
             android:layout_gravity="center_vertical"
             android:text="Send Feedback"/>
@@ -121,13 +123,13 @@
 
     <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="60dp"
+    android:layout_height="wrap_content"
         android:id="@+id/setting_privacypolice"
     android:orientation="horizontal">
 
     <ImageView
         android:layout_width="44dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginLeft="5dp"
         android:src="@drawable/privacy_gradient" />
         <TableLayout
@@ -138,8 +140,9 @@
             android:layout_height = "match_parent">
         <TableRow android:layout_weight="1">
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
         android:layout_gravity="center_vertical"
         android:textSize="22dp"
         android:text="Privacy Policy"/>
@@ -159,13 +162,13 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:id="@+id/setting_termsofuse"
         android:orientation="horizontal">
 
         <ImageView
             android:layout_width="44dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginLeft="5dp"
             android:src="@drawable/invite_gradient" />
 
@@ -177,8 +180,9 @@
             android:layout_height = "match_parent">
         <TableRow android:layout_weight="1">
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:layout_gravity="center_vertical"
             android:textSize="22dp"
             android:text="Terms of Uss"/>
@@ -200,13 +204,13 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:id="@+id/setting_rateapp"
         android:orientation="horizontal">
 
         <ImageView
             android:layout_width="44dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginLeft="5dp"
             android:src="@drawable/rating_gradient" />
 
@@ -218,8 +222,9 @@
             android:layout_height = "match_parent">
         <TableRow android:layout_weight="1">
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:layout_gravity="center_vertical"
             android:textSize="22dp"
             android:text="Rate App"/>
@@ -237,13 +242,13 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:id="@+id/setting_invitefriends"
         android:orientation="horizontal">
 
         <ImageView
             android:layout_width="44dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginLeft="5dp"
             android:src="@drawable/invite_gradient" />
         <TableLayout
@@ -254,8 +259,9 @@
             android:layout_height = "match_parent">
         <TableRow android:layout_weight="1">
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:layout_gravity="center_vertical"
             android:textSize="22dp"
 
@@ -276,12 +282,12 @@
     <LinearLayout
         android:id="@+id/setting_logout"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <ImageView
             android:layout_width="44dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginLeft="5dp"
             android:src="@drawable/logout_gradient" />
         <TableLayout
@@ -292,8 +298,9 @@
             android:layout_height = "match_parent">
         <TableRow android:layout_weight="1">
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:layout_gravity="center_vertical"
             android:textSize="22dp"
             android:text="Logout"/>
