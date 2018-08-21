@@ -25,9 +25,19 @@ LinearLayout viewpager_polling;
         polling_Title = findViewById(R.id.polling_Title);
 
         polling_Title.setText(getIntent().getStringExtra("name"));
-        pollingmain_livepolls.performLongClick();
+        pollingmain_livepolls.performClick();
+
+        /**/
+        pollingmain_closepolls.setBackgroundColor(getResources().getColor(android.R.color.white));
+        pollingmain_closepolls.setTextColor(Color.parseColor("#00b9ee"));
+        pollingmain_livepolls.setBackgroundColor(Color.parseColor("#00b9ee"));
+        pollingmain_livepolls.setTextColor(getResources().getColor(android.R.color.white));
 
 
+        FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+        Polling_live_list_fragment polling_live_list_fragment=new Polling_live_list_fragment(getIntent().getIntExtra("id",0));
+        ft.replace(R.id.viewpager_polling,polling_live_list_fragment).commit();
+        /**/
 
         pollingmain_livepolls.setOnClickListener(new View.OnClickListener() {
             @Override

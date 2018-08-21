@@ -30,9 +30,10 @@
         <activity android:name = ".Infrastructure" />
         <activity android:name = ".Goverment" />
         <activity android:name = ".Employment" />
-        <activity android:name = ".ForgotPassword"></activity>
-        <activity android:name = ".Fragments.FragmentEditprofile"></activity>
-        <activity android:name = ".Polling.ActivityPollingMain"></activity>
+        <activity android:name = ".ForgotPassword"/>
+        <activity android:name = ".Fragments.FragmentEditprofile"/>
+        <activity android:name = ".Polling.ActivityPollingMain"/>
+        <activity android:name = ".ActivityPollDetails"/>
     </application>
 
 </manifest>

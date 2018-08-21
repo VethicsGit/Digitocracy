@@ -24,18 +24,17 @@ import retrofit2.Response;
 public class FragmentAboutus extends Fragment {
 
 
-        TextView about_tv1,about_description;
+        TextView about_description;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_aboutus,container,false);
 
-        about_tv1=view.findViewById(R.id.about_tv1);
         about_description=view.findViewById(R.id.about_description);
 
 
         API apiService = APIS.getRetrofit().create(API.class);
-        Call<Aboutus> call=apiService.About_Us(about_description.getText().toString());
+        Call<Aboutus> call=apiService.About_Us();
 
         call.enqueue(new Callback<Aboutus>() {
             @Override
@@ -54,7 +53,7 @@ public class FragmentAboutus extends Fragment {
                     }
 
 
-                    about_description.setText(response1.toString());
+
 
 
                 }

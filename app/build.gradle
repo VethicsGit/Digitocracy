@@ -39,4 +39,14 @@ dependencies {
 
     implementation 'com.github.markomilos:paginate:0.5.1'
     implementation 'com.github.tosslife:pullloadview:1.1.0'
+
+//    implementation 'com.github.AnyChart:AnyChart-Android:0.3.0'
+    implementation 'org.achartengine:achartengine:1.2.0'
+
+    implementation 'com.akexorcist:RoundCornerProgressBar:2.0.3'
+
+//    implementation 'me.ithebk:barchart:0.9'
+    implementation 'com.github.blackfizz:eazegraph:1.2.2@aar'
+    implementation 'com.nineoldandroids:library:2.4.0'
+
 }

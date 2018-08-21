@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android = "http://schemas.android.com/apk/res/android"
+    android:layout_width = "match_parent"
+    android:background="#ffffff"
+    android:layout_height = "match_parent"
+    xmlns:barchart = "http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+        android:layout_width = "match_parent"
+        android:layout_height = "match_parent"
+        android:layout_marginEnd = "10dp"
+        android:layout_marginStart = "10dp"
+        android:layout_marginTop = "23dp"
+        android:orientation = "vertical">
+
+
+        <TextView
+            android:id="@+id/poll_details_title"
+            android:layout_width = "match_parent"
+            android:layout_height = "wrap_content"
+            android:text = "sample"
+            android:textSize = "25dp" />
+
+        <!--<RadioButton
+            android:layout_marginTop="10dp"
+            android:text="No"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:background="@drawable/blue_border"
+            android:layout_height="wrap_content" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/num"
+            android:text="1"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/num"
+                android:id="@+id/forword"
+                android:text="/"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/forword"
+                android:text="0"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_toLeftOf="@+id/per"
+                android:text="100"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:id="@+id/per"
+                android:text="%"/>
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+
+            <RadioButton
+                android:layout_marginTop="10dp"
+                android:text="Yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ProgressBar
+                android:id="@+id/progressBar3"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:background="@drawable/blue_border"
+                android:layout_height="wrap_content" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/num"
+                    android:text="1"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/num"
+                    android:id="@+id/forword"
+                    android:text="/"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/forword"
+                    android:text="0"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_toLeftOf="@+id/per"
+                    android:text="100"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/per"
+                    android:text="%"/>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>-->
+
+        <LinearLayout
+            android:id = "@+id/poll_details_progressbar_layout"
+            android:layout_width = "match_parent"
+            android:layout_height = "wrap_content"
+            android:layout_marginTop = "20dp"
+            android:orientation = "vertical" />
+
+        <LinearLayout
+            android:layout_width = "match_parent"
+            android:layout_height = "wrap_content"
+            android:layout_marginTop = "20dp"
+            android:orientation = "vertical">
+
+            <TextView
+                android:id="@+id/poll_details_totalvotes"
+                android:layout_width = "wrap_content"
+                android:layout_height = "wrap_content"
+                android:layout_gravity = "center"
+                android:text = "Total votes : 1"
+                android:textSize = "20dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width = "match_parent"
+            android:layout_height = "5dp"
+            android:layout_marginTop = "20dp"
+            android:background = "@drawable/dottedline"
+            android:orientation = "vertical" />
+
+        <TextView
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:layout_gravity = "start"
+            android:layout_marginTop = "20dp"
+            android:text = "Statistics"
+            android:textSize = "20dp" />
+
+       <!-- <com.anychart.anychart.AnyChartView
+            android:id="@+id/poll_details_chart"
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:paddingBottom="-30dp"
+            android:layout_height="200dp"
+            />-->
+        <FrameLayout
+            android:layout_margin="20dp"
+            android:id = "@+id/chart"
+            android:layout_width = "match_parent"
+            android:layout_height = "200dp"
+            android:orientation = "vertical" >
+
+       <!-- <lecho.lib.hellocharts.view.LineChartView
+            android:id="@+id/chart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />-->
+
+       <!-- <me.ithebk.barchart.BarChart
+            android:id="@+id/bar_chart_vertical"
+            barchart:bar_type="vertical"
+            barchart:bar_width="35dp"
+            barchart:bar_color="@color/colorPrimary"
+            barchart:bar_text_color="#808080"
+            barchart:bar_text_size="10sp"
+            barchart:bar_show_auto_color="false"
+            barchart:bar_max_value="100"
+            barchart:bar_spaces = "10dp"
+            barchart:bar_show_value="true"
+            android:layout_margin="15dp"
+            barchart:bar_show_animation="true"
+            android:layout_width="match_parent"
+            android:background="#EBEBEB"
+            android:layout_height="match_parent"/>-->
+
+            <org.eazegraph.lib.charts.BarChart
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:background="#EBEBEB"
+                android:id="@+id/barchart"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:padding="10dp"
+                app:egFixedBarWidth="true"
+                app:egShowValues="false"
+                app:egBarWidth="30dp"
+                app:egLegendHeight="40dp"/>
+
+        </FrameLayout>
+
+    </LinearLayout>
+</ScrollView>

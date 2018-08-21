@@ -27,6 +27,7 @@ public class SplashScreen extends Activity {
 
     private static int SPLASH_TIME_OUT = 3000;
     ImageView image;
+    ProgressDialog mProgressDialog;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +39,7 @@ public class SplashScreen extends Activity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                final ProgressDialog mProgressDialog = new ProgressDialog(SplashScreen.this);
+                mProgressDialog = new ProgressDialog(SplashScreen.this);
                 mProgressDialog.setIndeterminate(false);
                 mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
                 mProgressDialog.setCancelable(false);
@@ -81,6 +82,7 @@ public class SplashScreen extends Activity {
                                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(intent);
                             }
+
                             mProgressDialog.dismiss();
 
                         }
@@ -101,5 +103,11 @@ public class SplashScreen extends Activity {
             }
         },SPLASH_TIME_OUT);
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mProgressDialog.dismiss();
     }
 }

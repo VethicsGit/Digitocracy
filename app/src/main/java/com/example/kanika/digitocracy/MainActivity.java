@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     private Button skip;
     private SlideAdapter slideAdapter;
 
-    private int mCuurentPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

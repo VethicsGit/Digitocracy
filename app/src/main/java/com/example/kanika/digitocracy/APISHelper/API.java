@@ -34,10 +34,10 @@ public interface API {
     Call<PrivacyPolicy> Privacy_Policy(@Field("name") String name);
 
     @POST("About_US")
-    Call<Aboutus> About_Us(String s);
+    Call<Aboutus> About_Us();
 
     @POST("Terms_and_condition")
-    Call<Termsofuse> Terms_and_condition(@Field("name") String name);
+    Call<Termsofuse> Terms_and_condition();
 
     @POST("Resend_verification_email")
     Call<RealResponseBody> Resend_verification_email(@Field("email") String email);

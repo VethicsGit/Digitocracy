@@ -30,6 +30,19 @@
 foreign mony flowing into Washington will impact russian election?"
                 android:textSize = "22dp" />
 
+            <TextView
+                android:id="@+id/poll_close_id"
+                android:visibility="gone"
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:textSize = "22dp" />
+            <TextView
+                android:id="@+id/poll_close_cateid"
+                android:visibility="gone"
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:textSize = "22dp" />
+
             <RelativeLayout
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"

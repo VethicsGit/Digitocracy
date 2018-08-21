@@ -61,6 +61,6 @@ This will aloow us to choose th poll relevent
         android:textSize = "20dp"
         android:textStyle = "bold"
 
-        android:translationZ = "20dp" />
+       />
 
 </RelativeLayout>

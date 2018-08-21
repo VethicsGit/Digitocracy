@@ -4,15 +4,15 @@
     android:layout_marginTop="23dp" android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<TextView
-    android:id="@+id/privacypolice_tv"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textSize="22dp"
-    android:text="Privacy  Police"/>
+<ScrollView
+    android:layout_margin="5dp"
+    android:layout_width = "match_parent"
+    android:layout_height = "match_parent">
 
     <TextView
+        android:textSize="20dp"
         android:id="@+id/privacypolice_description"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+</ScrollView>
 </LinearLayout>

@@ -23,7 +23,7 @@ import retrofit2.Response;
 
 public class FragmentTermsofuse extends Fragment {
 
-    TextView terms_tv,terms_description;
+    TextView terms_description;
 
     @Nullable
     @Override
@@ -31,12 +31,11 @@ public class FragmentTermsofuse extends Fragment {
         View view = inflater.inflate(R.layout.fragment_termsofuse,container,false);
 
 
-        terms_tv=view.findViewById(R.id.terms_tv);
         terms_description=view.findViewById(R.id.terns_dsecription);
 
 
         API apiService = APIS.getRetrofit().create(API.class);
-        Call<Termsofuse> call=apiService.Terms_and_condition(terms_description.getText().toString());
+        Call<Termsofuse> call=apiService.Terms_and_condition();
 
         call.enqueue(new Callback<Termsofuse>() {
             @Override

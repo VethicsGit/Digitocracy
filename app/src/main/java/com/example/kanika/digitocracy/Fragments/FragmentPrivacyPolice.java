@@ -23,14 +23,13 @@ import retrofit2.Response;
 
 public class FragmentPrivacyPolice extends Fragment {
 
-    TextView privacypolice_tv,privacypolice_description;
+    TextView privacypolice_description;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fregment_privacypolice,container,false);
 
-        privacypolice_tv=view.findViewById(R.id.privacypolice_tv);
         privacypolice_description=view.findViewById(R.id.privacypolice_description);
 
 

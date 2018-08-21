@@ -1,6 +1,7 @@
 package com.example.kanika.digitocracy.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -30,6 +31,7 @@ import com.example.kanika.digitocracy.APIResponse.PollList_Response.PollVoteOpti
 import com.example.kanika.digitocracy.APIResponse.PollVoteResponse.PollVoteResponse;
 import com.example.kanika.digitocracy.APISHelper.API;
 import com.example.kanika.digitocracy.APISHelper.APIS;
+import com.example.kanika.digitocracy.ActivityPollDetails;
 import com.example.kanika.digitocracy.R;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -80,7 +82,7 @@ public class PollLiveAdapter extends RecyclerView.Adapter<PollLiveAdapter.ViewHo
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
 
         final PollList pollDetail = blogLists.get(position);
 
@@ -112,7 +114,14 @@ public class PollLiveAdapter extends RecyclerView.Adapter<PollLiveAdapter.ViewHo
 
         });
 
-
+        holder.poll_live_more.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(context, ActivityPollDetails.class);
+                i.putExtra("poll_id", holder.poll_live_id.getText().toString());
+                context.startActivity(i);
+            }
+        });
 
         List<PollVoteOption> pollVoteOptionList = pollDetail.getPollVoteOptions();
         for (int i = 0; i < pollVoteOptionList.size(); i++) {
@@ -121,16 +130,17 @@ public class PollLiveAdapter extends RecyclerView.Adapter<PollLiveAdapter.ViewHo
             rb.setText(pollVoteOption.getOption());
             rb.setTag(pollVoteOption.getPollVoteOptionId());
             if (pollVoteOption.getPollVoteOptionId().equals(pollDetail.getMyPollVoteOptionId())) {
-                rb.setChecked(true);
                 rb.setClickable(false);
+                rb.setFocusable(false);
+                rb.setChecked(true);
             }
 
             rb.setButtonTintList(colorStateList);
-            Log.e( "already_voted ",pollDetail.getAlreadyVoted());
+            Log.e("already_voted ", pollDetail.getAlreadyVoted());
             if (Integer.parseInt(pollDetail.getAlreadyVoted()) == 1) {
                 holder.poll_live_group.setClickable(false);
                 holder.poll_live_group.setEnabled(false);
-            }else {
+            } else {
                 rb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -152,7 +162,8 @@ public class PollLiveAdapter extends RecyclerView.Adapter<PollLiveAdapter.ViewHo
                                     JsonObject obj = (JsonObject) ary.get(0);
                                     if (obj.get("status").equals("true")) {
                                         Toast.makeText(context, "Voted sucessfully", Toast.LENGTH_SHORT).show();
-                                    } else Toast.makeText(context, "Voted Unsucessful", Toast.LENGTH_SHORT).show();
+                                    } else
+                                        Toast.makeText(context, "Voted Unsucessful", Toast.LENGTH_SHORT).show();
                                 }
 
                                 @Override
@@ -166,6 +177,12 @@ public class PollLiveAdapter extends RecyclerView.Adapter<PollLiveAdapter.ViewHo
 
             }
             holder.poll_live_group.addView(rb);
+        }
+
+        if (Integer.parseInt(pollDetail.getAlreadyVoted()) == 1) {
+            for (int i = 0; i < holder.poll_live_group.getChildCount(); i++) {
+                holder.poll_live_group.getChildAt(i).setClickable(false);
+            }
         }
 
     }
@@ -209,7 +226,7 @@ public class PollLiveAdapter extends RecyclerView.Adapter<PollLiveAdapter.ViewHo
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        TextView poll_live_title, poll_live_total_vote, poll_live_days, poll_live_id, poll_live_cateid;
+        TextView poll_live_title, poll_live_total_vote, poll_live_days, poll_live_id, poll_live_cateid, poll_live_more;
         RadioGroup poll_live_group;
 
         public ViewHolder(View itemView) {
@@ -220,6 +237,7 @@ public class PollLiveAdapter extends RecyclerView.Adapter<PollLiveAdapter.ViewHo
             poll_live_id = itemView.findViewById(R.id.poll_live_id);
             poll_live_cateid = itemView.findViewById(R.id.poll_live_cateid);
             poll_live_group = itemView.findViewById(R.id.poll_live_group);
+            poll_live_more = itemView.findViewById(R.id.poll_live_more);
 
         }
     }
