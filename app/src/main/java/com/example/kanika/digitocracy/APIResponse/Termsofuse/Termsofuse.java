@@ -11,13 +11,13 @@ public class Termsofuse {
 
     @SerializedName("response")
     @Expose
-    private List<Response> response = null;
+    private List<com.example.kanika.digitocracy.APIResponse.Termsofuse.Response> response = null;
 
     public List<com.example.kanika.digitocracy.APIResponse.Termsofuse.Response> getResponse() {
         return response;
     }
 
-    public void setResponse(List<Response> response) {
+    public void setResponse(List<com.example.kanika.digitocracy.APIResponse.Termsofuse.Response> response) {
         this.response = response;
     }
 

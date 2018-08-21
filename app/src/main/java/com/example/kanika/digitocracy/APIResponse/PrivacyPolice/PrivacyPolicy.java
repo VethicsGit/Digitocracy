@@ -11,14 +11,14 @@ public class PrivacyPolicy {
 
     @SerializedName("response")
     @Expose
-    private List<Response> response = null;
+    private List<com.example.kanika.digitocracy.APIResponse.PrivacyPolice.Response> response = null;
 
 
     public List<com.example.kanika.digitocracy.APIResponse.PrivacyPolice.Response> getResponse() {
         return response;
     }
 
-    public void setResponse(List<Response> response) {
+    public void setResponse(List<com.example.kanika.digitocracy.APIResponse.PrivacyPolice.Response> response) {
         this.response = response;
     }
 

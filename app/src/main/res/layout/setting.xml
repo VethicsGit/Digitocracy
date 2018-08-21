@@ -286,10 +286,7 @@
     </LinearLayout>
 
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 129edda8804a68da4926a19acfee3cdf93726064
     <LinearLayout
         android:layout_margin="5dp"
         android:id="@+id/setting_logout"

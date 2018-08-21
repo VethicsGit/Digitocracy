@@ -4,16 +4,13 @@ import com.example.kanika.digitocracy.APIResponse.Aboutus.Aboutus;
 import com.example.kanika.digitocracy.APIResponse.BlogList.BlogListResponse;
 import com.example.kanika.digitocracy.APIResponse.ForgotPass.ForgotpassResponse;
 import com.example.kanika.digitocracy.APIResponse.PollCategoryList.PollCategoryList;
-<<<<<<< HEAD
 import com.example.kanika.digitocracy.APIResponse.PollDetails_response.PollDetail;
 import com.example.kanika.digitocracy.APIResponse.PollDetails_response.PollDetailsResponse;
 import com.example.kanika.digitocracy.APIResponse.PollList_Response.PollListResponse;
 import com.example.kanika.digitocracy.APIResponse.PollVoteResponse.PollVoteResponse;
-=======
 import com.example.kanika.digitocracy.APIResponse.PrivacyPolice.PrivacyPolicy;
 
 import com.example.kanika.digitocracy.APIResponse.Termsofuse.Termsofuse;
->>>>>>> 129edda8804a68da4926a19acfee3cdf93726064
 import com.example.kanika.digitocracy.APIResponse.UpdateLocation.UpdateLocationResponse;
 import com.example.kanika.digitocracy.location.LocationResponse;
 import com.example.kanika.digitocracy.APIResponse.login.LoginResponse;
