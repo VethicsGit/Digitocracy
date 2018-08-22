@@ -51,13 +51,13 @@ public class FragmentDebates extends Fragment {
 
         Loginpref = getContext().getSharedPreferences("LoginStatus",Context.MODE_PRIVATE);
         API apiService = APIS.getRetrofit().create(API.class);
-        retrofit2.Call<Debates> call=apiService.debates_list(Loginpref.getString("user_id", ""), offset);
+        retrofit2.Call<Debates> call=apiService.debates_list(Loginpref.getString("user_id", ""), offset,Loginpref.getString("token",""));
 
 
         call.enqueue(new Callback<Debates>() {
             @Override
             public void onResponse(retrofit2.Call<Debates> call, Response<Debates> response) {
-                Log.e("","msg"+response);
+                Log.e("recycle","msg"+response);
                 Debates debates=response.body();
                 List<com.example.kanika.digitocracy.APIResponse.DebatesList.Response> list = debates.getResponse();
                 for (int i = 0 ;i< list.size();i++){

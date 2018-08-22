@@ -115,7 +115,9 @@ public interface API {
     @FormUrlEncoded
     @POST("debate_list")
     Call<Debates> debates_list(@Field("user_id")String user_id,
-                               @Field("offset") int offset);
+                               @Field("offset") int offset,
+                                @Header("Authorization") String token);
+
 
 
 }
