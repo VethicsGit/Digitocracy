@@ -116,7 +116,7 @@ public class Polling_live_list_fragment extends Fragment {
 
     public void LoadFirstItem(){
         LoginPref = getContext().getSharedPreferences("LoginStatus", Context.MODE_PRIVATE);
-        final ProgressDialog mProgressDialog = new ProgressDialog(getContext());
+        final ProgressDialog mProgressDialog = new ProgressDialog(getContext(),R.style.AppCompatAlertDialogStyle);
         mProgressDialog.setIndeterminate(false);
         mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         mProgressDialog.setCancelable(false);
@@ -165,7 +165,7 @@ public class Polling_live_list_fragment extends Fragment {
     public void ServiceCall() {
 
         LoginPref = getContext().getSharedPreferences("LoginStatus", Context.MODE_PRIVATE);
-        final ProgressDialog mProgressDialog = new ProgressDialog(getContext());
+        final ProgressDialog mProgressDialog = new ProgressDialog(getContext(),R.style.AppCompatAlertDialogStyle);
         mProgressDialog.setIndeterminate(false);
         mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         mProgressDialog.setCancelable(false);
@@ -215,7 +215,7 @@ public class Polling_live_list_fragment extends Fragment {
     /*public void ServiceCall() {
 
         LoginPref = getContext().getSharedPreferences("LoginStatus", Context.MODE_PRIVATE);
-        final ProgressDialog mProgressDialog = new ProgressDialog(getContext());
+        final ProgressDialog mProgressDialog = new ProgressDialog(getContext(),R.style.AppCompatAlertDialogStyle);
         mProgressDialog.setIndeterminate(false);
         mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         mProgressDialog.setCancelable(false);

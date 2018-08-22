@@ -4,7 +4,7 @@
         <bitmap
 
             android:gravity = "bottom|right"
-            android:src = "@drawable/background" />
+            android:src = "@mipmap/background" />
     </item>
     <item>
         <shape android:shape = "rectangle">
