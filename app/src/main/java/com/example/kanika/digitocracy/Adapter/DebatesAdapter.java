@@ -19,6 +19,8 @@ import com.example.kanika.digitocracy.APIResponse.DebatesList.DebateList;
 import com.example.kanika.digitocracy.APIResponse.DebatesList.DebateParticipant;
 import com.example.kanika.digitocracy.Public;
 import com.example.kanika.digitocracy.R;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -119,8 +121,13 @@ public class DebatesAdapter extends RecyclerView.Adapter<DebatesAdapter.ViewHold
         return debateList.size();
     }
 
+<<<<<<< HEAD
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView debates_title, debates_date_time, debates_profilename1, debates_profilename2, debates_profilename3;
+=======
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        TextView debates_title,debates_date_time,debates_profilename1,debates_profilename2,debates_profilename3;
+>>>>>>> 2ca3ffe7b2a07bc15e0eef6a26c2901b4a7a2549
         Button debates_join;
         ImageView debates_profile1, debates_profile2, debates_profile3;
         LinearLayout debates_layout_img;
@@ -139,6 +146,12 @@ public class DebatesAdapter extends RecyclerView.Adapter<DebatesAdapter.ViewHold
             debates_join = itemView.findViewById(R.id.debates_join);
             debates_layout_img = itemView.findViewById(R.id.debates_layout_img);
 
+        }
+
+        @Override
+        public void onClick(View view) {
+            int position = getAdapterPosition();
+            
         }
     }
 }
