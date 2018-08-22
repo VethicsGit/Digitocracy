@@ -24,7 +24,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class DebatesAdapter extends RecyclerView.Adapter<DebatesAdapter.ViewHolder> {
+public class
+DebatesAdapter extends RecyclerView.Adapter<DebatesAdapter.ViewHolder> {
 
     List<DebateList>debateList;
     Context context;

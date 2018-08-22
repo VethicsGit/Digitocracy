@@ -24,6 +24,7 @@ import com.example.kanika.digitocracy.APIResponse.PollCategoryList.PollCategoryL
 import com.example.kanika.digitocracy.APISHelper.API;
 import com.example.kanika.digitocracy.APISHelper.APIS;
 import com.example.kanika.digitocracy.Fragments.FragmentBlog;
+import com.example.kanika.digitocracy.Fragments.FragmentDebates;
 import com.example.kanika.digitocracy.Fragments.Fragment_PollCategories;
 
 import java.util.List;
@@ -86,6 +87,7 @@ public class PollCategories extends AppCompatActivity {
                 FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
                 Title.setText("Debates");
                 ft.addToBackStack("Dashboard");
+                ft.replace(R.id.viewpager,new FragmentDebates()).commit();
 
             }
         });

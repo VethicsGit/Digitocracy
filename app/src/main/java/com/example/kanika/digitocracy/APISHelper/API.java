@@ -2,6 +2,7 @@ package com.example.kanika.digitocracy.APISHelper;
 
 import com.example.kanika.digitocracy.APIResponse.Aboutus.Aboutus;
 import com.example.kanika.digitocracy.APIResponse.BlogList.BlogListResponse;
+import com.example.kanika.digitocracy.APIResponse.DebatesList.Debates;
 import com.example.kanika.digitocracy.APIResponse.ForgotPass.ForgotpassResponse;
 import com.example.kanika.digitocracy.APIResponse.PollCategoryList.PollCategoryList;
 import com.example.kanika.digitocracy.APIResponse.PollDetails_response.PollDetail;
@@ -110,5 +111,11 @@ public interface API {
     Call<PollDetailsResponse> poll_details(@Field("user_id") String user_id,
                                            @Field("poll_id") int poll_id,
                                            @Header("Authorization") String token);
+
+    @FormUrlEncoded
+    @POST("debate_list")
+    Call<Debates> debates_list(@Field("user_id")String user_id,
+                               @Field("offset") int offset);
+
 
 }
