@@ -2,6 +2,7 @@ package com.example.kanika.digitocracy;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentTransaction;
@@ -40,6 +41,9 @@ public class PollCategories extends AppCompatActivity {
     LinearLayout viewpager;
     public TextView Title;
 
+    ImageView setting_img,debets_img,blogs_img,home_img;
+    TextView setting_txt,debets_txt,blogs_txt,home_txt;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.poll_categorie);
@@ -52,6 +56,17 @@ public class PollCategories extends AppCompatActivity {
         viewpager = findViewById(R.id.viewpager);
 
 
+        home_img= findViewById(R.id.home_img);
+        setting_img= findViewById(R.id.setting_img);
+        debets_img= findViewById(R.id.debets_img);
+        blogs_img= findViewById(R.id.blogs_img);
+
+        home_txt= findViewById(R.id.home_txt);
+        setting_txt= findViewById(R.id.setting_txt);
+        debets_txt= findViewById(R.id.debets_txt);
+        blogs_txt= findViewById(R.id.blogs_txt);
+
+
         getSupportFragmentManager().beginTransaction().replace(R.id.viewpager,new Fragment_PollCategories()).commit();
 
         settings.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +76,17 @@ public class PollCategories extends AppCompatActivity {
                 Title.setText("Settings");
                 ft.addToBackStack("Dashboard");
                 ft.replace(R.id.viewpager,new Setting()).commit();
+
+                home_img.setImageDrawable(getResources().getDrawable(R.drawable.home));
+                blogs_img.setImageDrawable(getResources().getDrawable(R.drawable.blogs));
+                debets_img.setImageDrawable(getResources().getDrawable(R.drawable.debates));
+                setting_img.setImageDrawable(getResources().getDrawable(R.drawable.setting_selected));
+
+
+                home_txt.setTextColor(Color.parseColor("#666666"));
+                blogs_txt.setTextColor(Color.parseColor("#666666"));
+                debets_txt.setTextColor(Color.parseColor("#666666"));
+                setting_txt.setTextColor(getResources().getColor(R.color.clr));
             }
         });
         home.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +96,16 @@ public class PollCategories extends AppCompatActivity {
                 Title.setText("Poll Categories");
                 ft.addToBackStack("Dashboard");
                 ft.replace(R.id.viewpager,new Fragment_PollCategories()).commit();
+
+                home_img.setImageDrawable(getResources().getDrawable(R.drawable.home_selected));
+                blogs_img.setImageDrawable(getResources().getDrawable(R.drawable.blogs));
+                debets_img.setImageDrawable(getResources().getDrawable(R.drawable.debates));
+                setting_img.setImageDrawable(getResources().getDrawable(R.drawable.setting));
+
+                home_txt.setTextColor(getResources().getColor(R.color.clr));
+                blogs_txt.setTextColor(Color.parseColor("#666666"));
+                debets_txt.setTextColor(Color.parseColor("#666666"));
+                setting_txt.setTextColor(Color.parseColor("#666666"));
             }
         });
         blogs.setOnClickListener(new View.OnClickListener() {
@@ -79,6 +115,16 @@ public class PollCategories extends AppCompatActivity {
                 Title.setText("Blogs");
                 ft.addToBackStack("Dashboard");
                 ft.replace(R.id.viewpager,new FragmentBlog()).commit();
+
+                home_img.setImageDrawable(getResources().getDrawable(R.drawable.home));
+                blogs_img.setImageDrawable(getResources().getDrawable(R.drawable.blogs_selected));
+                debets_img.setImageDrawable(getResources().getDrawable(R.drawable.debates));
+                setting_img.setImageDrawable(getResources().getDrawable(R.drawable.setting));
+
+                home_txt.setTextColor(Color.parseColor("#666666"));
+                blogs_txt.setTextColor(getResources().getColor(R.color.clr));
+                debets_txt.setTextColor(Color.parseColor("#666666"));
+                setting_txt.setTextColor(Color.parseColor("#666666"));
             }
         });
         debates.setOnClickListener(new View.OnClickListener() {
@@ -88,6 +134,16 @@ public class PollCategories extends AppCompatActivity {
                 Title.setText("Debates");
                 ft.addToBackStack("Dashboard");
                 ft.replace(R.id.viewpager,new FragmentDebates()).commit();
+
+                home_img.setImageDrawable(getResources().getDrawable(R.drawable.home));
+                blogs_img.setImageDrawable(getResources().getDrawable(R.drawable.blogs));
+                debets_img.setImageDrawable(getResources().getDrawable(R.drawable.debates_selected));
+                setting_img.setImageDrawable(getResources().getDrawable(R.drawable.setting));
+
+                home_txt.setTextColor(Color.parseColor("#666666"));
+                blogs_txt.setTextColor(Color.parseColor("#666666"));
+                debets_txt.setTextColor(getResources().getColor(R.color.clr));
+                setting_txt.setTextColor(Color.parseColor("#666666"));
 
             }
         });
