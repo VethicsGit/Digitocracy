@@ -3,6 +3,7 @@ package com.example.kanika.digitocracy.Adapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,28 +59,31 @@ DebatesAdapter extends RecyclerView.Adapter<DebatesAdapter.ViewHolder> {
         holder.debates_title.setText(debate.getTopicTitle());
 
 
-        Date date = new Date(debate.getScheduleDateTime());
 
-        android.text.format.DateFormat.format("yyyy-MM-dd hh:mm:ss", date);
 
-        Calendar c = Calendar.getInstance();
-        c.setTime(date); // yourdate is an object of type Date
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        Date sourceDate = null;
 
-        int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
-        SimpleDateFormat format = new SimpleDateFormat("dd MMM yyyy kk:mm p");
+        Date date = null;
         try {
-            Date date1 = format.parse(debate.getScheduleDateTime());
-            holder.debates_date_time.setText(day[dayOfWeek]+", "+date1.toString());
+            date = dateFormat.parse(debate.getScheduleDateTime());
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
+        Calendar c = Calendar.getInstance();
+        c.setTime(date); // yourdate is an object of type Date
+        int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+        Log.e("day_of_week", String.valueOf(dayOfWeek));
+        SimpleDateFormat format = new SimpleDateFormat("dd MMM yyyy hh:mm a");
+        holder.debates_date_time.setText(day[dayOfWeek-1]+", "+format.format(date));
         List<DebateParticipant>debateParticipants =debate.getDebateParticipants();
-     for (int i=0;i<debateParticipants.size();i++){
+     /*for (int i=0;i<debateParticipants.size();i++){
          DebateParticipant debat=debateParticipants.get(position);
          holder.debates_profilename1.setText(debat.getName());
 
          Glide.with(context).load(debat.getProfilePic()).into(holder.debates_profile1);
-     }
+     }*/
 
 
 
