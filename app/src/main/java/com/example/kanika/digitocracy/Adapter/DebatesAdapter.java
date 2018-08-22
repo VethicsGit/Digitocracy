@@ -49,7 +49,7 @@ public class DebatesAdapter extends RecyclerView.Adapter<DebatesAdapter.ViewHold
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(context).inflate(R.layout.debates_layout, null);
+        View view = LayoutInflater.from(context).inflate(R.layout.debates_layout, parent,false);
 
         return new ViewHolder(view);
     }
@@ -78,7 +78,7 @@ public class DebatesAdapter extends RecyclerView.Adapter<DebatesAdapter.ViewHold
         holder.debates_date_time.setText(day[dayOfWeek - 1] + ", " + format.format(date));
         List<DebateParticipant> debateParticipants = debate.getDebateParticipants();
         for (int i = 0; i < debateParticipants.size(); i++) {
-            DebateParticipant debat = debateParticipants.get(position);
+            DebateParticipant debat = debateParticipants.get(i);
 
             LinearLayout layout=new LinearLayout(context);
             LinearLayout.LayoutParams params=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT,1);
@@ -92,26 +92,28 @@ public class DebatesAdapter extends RecyclerView.Adapter<DebatesAdapter.ViewHold
             paramsImg.setMargins(3,3,3,3);
             paramsImg.gravity=Gravity.CENTER;
             circleImageView.setLayoutParams(paramsImg);
-            Glide.with(context).load(debat.getProfilePicThumb());
+            Glide.with(context).load(debat.getProfilePicThumb()).into(circleImageView);
 
 
 
             TextView tQty=new TextView(context);
-            LinearLayout.LayoutParams paramstqty=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT,1);
+            LinearLayout.LayoutParams paramstqty=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 40,1);
             paramstqty.setMargins(20,0,20,10);
             paramstqty.gravity= Gravity.CENTER;
 
             tQty.setLayoutParams(paramstqty);
             tQty.setTextSize(15.0f);
             tQty.setTextColor(Color.BLACK);
+            tQty.setSingleLine(true);
             tQty.setText(debat.getName());
 
+            layout.addView(circleImageView);
             layout.addView(tQty);
             holder.debates_layout_img.addView(layout);
 
-            holder.debates_profilename1.setText(debat.getName());
+           /* holder.debates_profilename1.setText(debat.getName());
 
-            Glide.with(context).load(debat.getProfilePic()).into(holder.debates_profile1);
+            Glide.with(context).load(debat.getProfilePic()).into(holder.debates_profile1);*/
         }
 
     }
@@ -121,13 +123,8 @@ public class DebatesAdapter extends RecyclerView.Adapter<DebatesAdapter.ViewHold
         return debateList.size();
     }
 
-<<<<<<< HEAD
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView debates_title, debates_date_time, debates_profilename1, debates_profilename2, debates_profilename3;
-=======
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView debates_title,debates_date_time,debates_profilename1,debates_profilename2,debates_profilename3;
->>>>>>> 2ca3ffe7b2a07bc15e0eef6a26c2901b4a7a2549
         Button debates_join;
         ImageView debates_profile1, debates_profile2, debates_profile3;
         LinearLayout debates_layout_img;
@@ -140,9 +137,9 @@ public class DebatesAdapter extends RecyclerView.Adapter<DebatesAdapter.ViewHold
             debates_profilename1 = itemView.findViewById(R.id.debates_profilename1);
             debates_profilename2 = itemView.findViewById(R.id.debates_profilename2);
             debates_profilename3 = itemView.findViewById(R.id.debates_profilename3);
-            debates_profile1 = itemView.findViewById(R.id.debates_profile1);
-            debates_profile2 = itemView.findViewById(R.id.debates_profile2);
-            debates_profile3 = itemView.findViewById(R.id.debates_profile3);
+//            debates_profile1 = itemView.findViewById(R.id.debates_profile1);
+//            debates_profile2 = itemView.findViewById(R.id.debates_profile2);
+//            debates_profile3 = itemView.findViewById(R.id.debates_profile3);
             debates_join = itemView.findViewById(R.id.debates_join);
             debates_layout_img = itemView.findViewById(R.id.debates_layout_img);
 

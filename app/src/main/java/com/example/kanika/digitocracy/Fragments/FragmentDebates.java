@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.kanika.digitocracy.APIResponse.Aboutus.Aboutus;
@@ -50,8 +51,12 @@ public class FragmentDebates extends Fragment {
         View view=inflater.inflate(R.layout.fragment_debates,container,false);
 
     debates_recyclerView=view.findViewById(R.id.debates_recyclerview);
-    RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(getContext());
+    LinearLayoutManager layoutManager=new LinearLayoutManager(getContext());
     debates_recyclerView.setLayoutManager(layoutManager);
+
+        LinearLayout.LayoutParams paramstlyn=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        debates_recyclerView.setLayoutParams(paramstlyn);
+
         RecyclerViewMargin decoration = new RecyclerViewMargin(10, 2);
         debates_recyclerView.addItemDecoration(decoration);
 

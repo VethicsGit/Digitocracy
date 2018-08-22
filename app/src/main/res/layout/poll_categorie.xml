@@ -2,13 +2,14 @@
 <LinearLayout
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:background="#ffffff"
     android:layout_height="match_parent">
 
     <android.support.design.widget.AppBarLayout
         android:layout_weight="7.5"
         android:layout_width = "match_parent"
         android:layout_marginTop="23dp"
-        android:background="#E0E0E0"
+        android:background="#EEEEEE"
         android:layout_height = "match_parent">
             <TextView
                 android:id="@+id/Title"
@@ -223,12 +224,14 @@
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/home_img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
                 android:src="@drawable/home" />
 
             <TextView
+                android:id="@+id/home_txt"
                 android:layout_alignParentBottom="true"
                 android:layout_width="match_parent"
                android:gravity="center"
@@ -250,9 +253,11 @@ android:textColor="#666666"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
+                android:id="@+id/blogs_img"
                 android:src="@drawable/blogs" />
 
             <TextView
+                android:id="@+id/blogs_txt"
                 android:layout_width="match_parent"
                 android:gravity="center"
                 android:layout_alignParentBottom="true"
@@ -272,12 +277,14 @@ android:textColor="#666666"
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/debets_img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
                 android:src="@drawable/debates" />
 
             <TextView
+                android:id="@+id/debets_txt"
                 android:layout_width="match_parent"
                 android:gravity="center"
                 android:layout_alignParentBottom="true"
@@ -295,12 +302,14 @@ android:textColor="#666666"
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/setting_img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
                 android:src="@drawable/setting" />
 
             <TextView
+                android:id="@+id/setting_txt"
                 android:layout_width="match_parent"
                 android:gravity="center"
                 android:layout_alignParentBottom="true"
