@@ -23,6 +23,7 @@ import com.example.kanika.digitocracy.APISHelper.API;
 import com.example.kanika.digitocracy.APISHelper.APIS;
 import com.example.kanika.digitocracy.Adapter.DebatesAdapter;
 import com.example.kanika.digitocracy.R;
+import com.example.kanika.digitocracy.extra.RecyclerViewMargin;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
@@ -51,7 +52,8 @@ public class FragmentDebates extends Fragment {
     debates_recyclerView=view.findViewById(R.id.debates_recyclerview);
     RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(getContext());
     debates_recyclerView.setLayoutManager(layoutManager);
-
+        RecyclerViewMargin decoration = new RecyclerViewMargin(10, 2);
+        debates_recyclerView.addItemDecoration(decoration);
 
         Loginpref = getContext().getSharedPreferences("LoginStatus",Context.MODE_PRIVATE);
         API apiService = APIS.getRetrofit().create(API.class);
