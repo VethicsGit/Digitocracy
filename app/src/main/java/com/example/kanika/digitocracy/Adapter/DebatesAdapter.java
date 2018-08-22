@@ -15,6 +15,8 @@ import com.example.kanika.digitocracy.APIResponse.DebatesList.DebateList;
 import com.example.kanika.digitocracy.APIResponse.DebatesList.DebateParticipant;
 import com.example.kanika.digitocracy.Public;
 import com.example.kanika.digitocracy.R;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -88,7 +90,7 @@ DebatesAdapter extends RecyclerView.Adapter<DebatesAdapter.ViewHolder> {
         return debateList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView debates_title,debates_date_time,debates_profilename1,debates_profilename2,debates_profilename3;
         Button debates_join;
         ImageView debates_profile1,debates_profile2,debates_profile3;
@@ -108,6 +110,12 @@ DebatesAdapter extends RecyclerView.Adapter<DebatesAdapter.ViewHolder> {
 
 
 
+        }
+
+        @Override
+        public void onClick(View view) {
+            int position = getAdapterPosition();
+            
         }
     }
 }
