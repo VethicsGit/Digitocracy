@@ -88,8 +88,8 @@ public class DebatesAdapter extends RecyclerView.Adapter<DebatesAdapter.ViewHold
             layout.setLayoutParams(params);
 
             CircleImageView circleImageView=new CircleImageView(context);
-            LinearLayout.LayoutParams paramsImg=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 90,1);
-            paramsImg.setMargins(3,3,3,3);
+            LinearLayout.LayoutParams paramsImg=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT,1);
+//            paramsImg.setMargins(3,3,3,3);
             paramsImg.gravity=Gravity.CENTER;
             circleImageView.setLayoutParams(paramsImg);
             Glide.with(context).load(debat.getProfilePicThumb());
@@ -121,13 +121,12 @@ public class DebatesAdapter extends RecyclerView.Adapter<DebatesAdapter.ViewHold
         return debateList.size();
     }
 
-<<<<<<< HEAD
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView debates_title, debates_date_time, debates_profilename1, debates_profilename2, debates_profilename3;
-=======
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+
+
+    public class ViewHolder extends RecyclerView.ViewHolder  {
         TextView debates_title,debates_date_time,debates_profilename1,debates_profilename2,debates_profilename3;
->>>>>>> 2ca3ffe7b2a07bc15e0eef6a26c2901b4a7a2549
+
         Button debates_join;
         ImageView debates_profile1, debates_profile2, debates_profile3;
         LinearLayout debates_layout_img;
@@ -148,11 +147,7 @@ public class DebatesAdapter extends RecyclerView.Adapter<DebatesAdapter.ViewHold
 
         }
 
-        @Override
-        public void onClick(View view) {
-            int position = getAdapterPosition();
-            
-        }
+
     }
 }
                             

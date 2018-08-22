@@ -1,6 +1,7 @@
 package com.example.kanika.digitocracy.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.kanika.digitocracy.APIResponse.BlogList.BlogList;
+import com.example.kanika.digitocracy.BlogDetail;
 import com.example.kanika.digitocracy.R;
 
 import java.util.ArrayList;
@@ -66,19 +68,32 @@ public class BlogAdapter extends RecyclerView.Adapter<BlogAdapter.ViewHolder> {
         return blogLists.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView blog_createdat,blog_cateid,blog_id,blog_title,bloglist_blogcatetitle;
         ImageView blog_coverimg;
+        List<BlogList> blogLists;
+        BlogList list;
 
         public ViewHolder(View itemView) {
             super(itemView);
-
+            itemView.setOnClickListener(this);
+            this.blogLists = blogLists;
             blog_createdat=itemView.findViewById(R.id.blog_createdat);
             blog_cateid=itemView.findViewById(R.id.blog_cateid);
             blog_id=itemView.findViewById(R.id.blog_id);
             blog_title=itemView.findViewById(R.id.blog_title);
             bloglist_blogcatetitle=itemView.findViewById(R.id.bloglist_blogcatetitle);
             blog_coverimg=itemView.findViewById(R.id.blog_coverimg);
+        }
+
+        @Override
+        public void onClick(View view) {
+
+            int postion = getAdapterPosition();
+            BlogList blogList=this.blogLists.get(postion);
+            Intent intent = new Intent (view.getContext(), BlogDetail.class);
+            view.getContext().startActivity(intent);
+
         }
     }
 

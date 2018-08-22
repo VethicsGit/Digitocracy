@@ -1,11 +1,11 @@
 package com.example.kanika.digitocracy.APISHelper;
 
 import com.example.kanika.digitocracy.APIResponse.Aboutus.Aboutus;
+import com.example.kanika.digitocracy.APIResponse.BlogDetail.BlogDetailResponse;
 import com.example.kanika.digitocracy.APIResponse.BlogList.BlogListResponse;
 import com.example.kanika.digitocracy.APIResponse.DebatesList.Debates;
 import com.example.kanika.digitocracy.APIResponse.ForgotPass.ForgotpassResponse;
 import com.example.kanika.digitocracy.APIResponse.PollCategoryList.PollCategoryList;
-import com.example.kanika.digitocracy.APIResponse.PollDetails_response.PollDetail;
 import com.example.kanika.digitocracy.APIResponse.PollDetails_response.PollDetailsResponse;
 import com.example.kanika.digitocracy.APIResponse.PollList_Response.PollListResponse;
 import com.example.kanika.digitocracy.APIResponse.PollVoteResponse.PollVoteResponse;
@@ -89,7 +89,7 @@ public interface API {
     Call<BlogListResponse> blog_list(@Field("user_id") String user_id, @Field("offset") int offset, @Field("blog_category_id") String blog_category_id, @Header("Authorization") String token);
 
     @POST("blog_details")
-    Call<RealResponseBody> blog_details(@Field("user_id") String user_id, @Field("blog_is") String blog_is);
+    Call<BlogDetailResponse> blog_details(@Field("user_id") String user_id, @Field("blog_id") String blog_id);
 
     @FormUrlEncoded
     @POST("Poll_list")
