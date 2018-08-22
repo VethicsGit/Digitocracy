@@ -58,7 +58,7 @@ DebatesAdapter extends RecyclerView.Adapter<DebatesAdapter.ViewHolder> {
 
         Date date = new Date(debate.getScheduleDateTime());
 
-        android.text.format.DateFormat.format("yyyy-MM-dd hh:mm:ss a", date);
+        android.text.format.DateFormat.format("yyyy-MM-dd hh:mm:ss", date);
 
         Calendar c = Calendar.getInstance();
         c.setTime(date); // yourdate is an object of type Date
@@ -85,7 +85,7 @@ DebatesAdapter extends RecyclerView.Adapter<DebatesAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return debateList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

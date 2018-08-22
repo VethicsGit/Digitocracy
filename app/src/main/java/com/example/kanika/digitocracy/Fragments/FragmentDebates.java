@@ -16,12 +16,16 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.kanika.digitocracy.APIResponse.Aboutus.Aboutus;
+import com.example.kanika.digitocracy.APIResponse.BlogList.BlogListResponse;
 import com.example.kanika.digitocracy.APIResponse.DebatesList.DebateList;
 import com.example.kanika.digitocracy.APIResponse.DebatesList.Debates;
 import com.example.kanika.digitocracy.APISHelper.API;
 import com.example.kanika.digitocracy.APISHelper.APIS;
 import com.example.kanika.digitocracy.Adapter.DebatesAdapter;
 import com.example.kanika.digitocracy.R;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
 
 import java.util.List;
 
@@ -57,7 +61,12 @@ public class FragmentDebates extends Fragment {
         call.enqueue(new Callback<Debates>() {
             @Override
             public void onResponse(retrofit2.Call<Debates> call, Response<Debates> response) {
-                Log.e("recycle","msg"+response);
+
+
+                Gson gson = new GsonBuilder().create();
+                JsonObject myCustomArray = gson.toJsonTree(response.body()).getAsJsonObject();
+                Log.e("recycle","msg"+myCustomArray);
+
                 Debates debates=response.body();
                 List<com.example.kanika.digitocracy.APIResponse.DebatesList.Response> list = debates.getResponse();
                 for (int i = 0 ;i< list.size();i++){
@@ -84,6 +93,9 @@ public class FragmentDebates extends Fragment {
                 Toast.makeText(getContext(),"debates not display",Toast.LENGTH_LONG).show();
             }
         });
+
+
+
         return view;
     }
 }
