@@ -57,7 +57,7 @@ public class BlogDetail extends Fragment {
 
                     if (response1.getStatus().equals("true")){
                         for (int x=0;x<blogDetails.size();x++){
-                            BlogDetail_ blogDetail_=response1.getBlogDetails();
+                            BlogDetail_ blogDetail_=blogDetails.get(x);
 
 
                         }
