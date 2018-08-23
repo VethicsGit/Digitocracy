@@ -123,17 +123,14 @@ public class DebatesAdapter extends RecyclerView.Adapter<DebatesAdapter.ViewHold
         return debateList.size();
     }
 
-<<<<<<< HEAD
 
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder  {
+
+
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
         TextView debates_title,debates_date_time,debates_profilename1,debates_profilename2,debates_profilename3;
-
-=======
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView debates_title,debates_date_time,debates_profilename1,debates_profilename2,debates_profilename3;
->>>>>>> 634e15ba3f4b72a6fada7c9f11462cae823cbfe1
         Button debates_join;
         ImageView debates_profile1, debates_profile2, debates_profile3;
         LinearLayout debates_layout_img;
