@@ -34,6 +34,7 @@
         <activity android:name = ".Fragments.FragmentEditprofile"/>
         <activity android:name = ".Polling.ActivityPollingMain"/>
         <activity android:name = ".ActivityPollDetails"/>
+        <activity android:name=".BlogDetail"/>
     </application>
 
 </manifest>

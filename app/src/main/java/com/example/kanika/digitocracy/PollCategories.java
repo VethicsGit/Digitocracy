@@ -1,38 +1,19 @@
 package com.example.kanika.digitocracy;
 
-import android.content.Context;
-import android.content.SharedPreferences;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.GridLayout;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.example.kanika.digitocracy.APIResponse.PollCategoryList.PollCategoryList;
-import com.example.kanika.digitocracy.APISHelper.API;
-import com.example.kanika.digitocracy.APISHelper.APIS;
 import com.example.kanika.digitocracy.Fragments.FragmentBlog;
 import com.example.kanika.digitocracy.Fragments.FragmentDebates;
 import com.example.kanika.digitocracy.Fragments.Fragment_PollCategories;
-
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class PollCategories extends AppCompatActivity {
 
@@ -41,7 +22,7 @@ public class PollCategories extends AppCompatActivity {
     LinearLayout viewpager;
     public TextView Title;
 
-    ImageView setting_img,debets_img,blogs_img,home_img;
+    ImageView setting_img,debets_img,blogs_img,home_img,blog_filter;
     TextView setting_txt,debets_txt,blogs_txt,home_txt;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +46,7 @@ public class PollCategories extends AppCompatActivity {
         setting_txt= findViewById(R.id.setting_txt);
         debets_txt= findViewById(R.id.debets_txt);
         blogs_txt= findViewById(R.id.blogs_txt);
+        blog_filter=findViewById(R.id.blog_filter);
 
 
         getSupportFragmentManager().beginTransaction().replace(R.id.viewpager,new Fragment_PollCategories()).commit();
@@ -149,7 +131,14 @@ public class PollCategories extends AppCompatActivity {
         });
 
 
+        blog_filter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                Intent intent=new Intent(PollCategories.this,FilterDetail.class);
+                startActivity(intent);
+            }
+        });
 
 
 

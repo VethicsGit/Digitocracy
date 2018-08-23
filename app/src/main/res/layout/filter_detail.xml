@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<CheckBox
+    android:id="@+id/marketing"
+    android:layout_marginTop="20dp"
+    android:layout_width="match_parent"
+    android:text="Digital Marketing"
+    android:layout_alignParentStart="true"
+    android:layout_height="wrap_content" />
+    <View
+        android:id="@+id/view1"
+        android:layout_below="@id/marketing"
+        android:layout_width="match_parent"
+        android:background="#969696"
+        android:layout_height="1dp"/>
+    <CheckBox
+        android:layout_below="@id/view1"
+        android:id="@+id/business"
+        android:text="Business"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <View
+        android:id="@+id/view2"
+        android:layout_below="@id/business"
+        android:layout_width="match_parent"
+        android:background="#969696"
+        android:layout_height="1dp"/>
+
+    <CheckBox
+        android:layout_below="@id/view2"
+        android:id="@+id/professional"
+        android:text="Professional"
+        android:backgroundTint="@color/skyblue"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Done"
+        android:id="@+id/done"
+        android:layout_margin="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+       android:background="@drawable/blue_round_corner"
+        android:textColor="#ffffff"
+        android:layout_gravity="bottom"/>
+
+</RelativeLayout>

@@ -87,9 +87,9 @@ public interface API {
     @FormUrlEncoded
     @POST("blog_list")
     Call<BlogListResponse> blog_list(@Field("user_id") String user_id, @Field("offset") int offset, @Field("blog_category_id") String blog_category_id, @Header("Authorization") String token);
-
+    @FormUrlEncoded
     @POST("blog_details")
-    Call<BlogDetailResponse> blog_details(@Field("user_id") String user_id, @Field("blog_id") String blog_id);
+    Call<BlogDetailResponse> blog_details(@Field("user_id") String user_id, @Field("blog_id") int blog_id, @Header("Authorization") String token);
 
     @FormUrlEncoded
     @POST("Poll_list")
