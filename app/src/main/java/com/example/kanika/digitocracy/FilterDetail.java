@@ -1,3 +1,4 @@
+/*
 package com.example.kanika.digitocracy;
 
 import android.content.Context;
@@ -31,6 +32,7 @@ public class FilterDetail extends AppCompatActivity {
     SharedPreferences LoginPref;
 
     int offset = 0;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,56 +41,61 @@ public class FilterDetail extends AppCompatActivity {
         business = findViewById(R.id.business);
         professional = findViewById(R.id.professional);
 
-        done=findViewById(R.id.done);
+        done = findViewById(R.id.done);
 
+
+        done.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (marketing.isChecked()) {
+
+                    String checked = marketing.getText().toString();
+
+                    API apiService = APIS.getRetrofit().create(API.class);
+                    Call<BlogListResponse> call = apiService.blog_list(LoginPref.getString("user_id", ""), offset, "", LoginPref.getString("token", ""));
+
+                    call.enqueue(new Callback<BlogListResponse>() {
+                        @Override
+                        public void onResponse(Call<BlogListResponse> call, Response<BlogListResponse> response) {
+                            BlogListResponse blogListResponse = response.body();
+                            List<com.example.kanika.digitocracy.APIResponse.BlogList.Response> resList = blogListResponse.getResponse();
+                            for (int i = 0; i < resList.size(); i++) {
+                                com.example.kanika.digitocracy.APIResponse.BlogList.Response re = resList.get(i);
+                                if (re.getStatus().equals("true")) {
+                                    offset = re.getOffset();
+
+                                    List<BlogList> blogLists = re.getBlogList();
+                                    blogAdapter = new BlogAdapter(blogLists, getContext());
+                                    blog_recyclar_view.setAdapter(blogAdapter);
+                                    Log.e("_Offset", String.valueOf(offset));
+                                    mSwipeRefreshLayout.setRefreshing(false);
+                                } else {
+                                    mProgressDialog.dismiss();
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<BlogListResponse> call, Throwable t) {
+
+                        }
+                    });
+                }
+                if (business.isChecked()) {
+
+                }
+                if (professional.isChecked()) {
+
+                }
+
+            }
+
+
+        });
 
 
     }
 
-    public void onCheckboxClicked(View view) {
-
-
-
-        if(marketing.isChecked()){
-
-            String checked=marketing.getText().toString();
-
-            API apiService = APIS.getRetrofit().create(API.class);
-            Call<BlogListResponse> call = apiService.blog_list(LoginPref.getString("user_id", ""), offset, "", LoginPref.getString("token", ""));
-
-         call.enqueue(new Callback<BlogListResponse>() {
-             @Override
-             public void onResponse(Call<BlogListResponse> call, Response<BlogListResponse> response) {
-                 BlogListResponse blogListResponse = response.body();
-                 List<com.example.kanika.digitocracy.APIResponse.BlogList.Response> resList = blogListResponse.getResponse();
-                 for (int i = 0; i < resList.size(); i++) {
-                     com.example.kanika.digitocracy.APIResponse.BlogList.Response re = resList.get(i);
-                     if (re.getStatus().equals("true")) {
-                         offset = re.getOffset();
-
-                         List<BlogList> blogLists = re.getBlogList();
-                         blogAdapter = new BlogAdapter(blogLists, getContext());
-                         blog_recyclar_view.setAdapter(blogAdapter);
-                         Log.e("_Offset", String.valueOf(offset));
-                         mSwipeRefreshLayout.setRefreshing(false);
-                     } else {
-                         mProgressDialog.dismiss();
-                     }
-                 }
-             }
-
-             @Override
-             public void onFailure(Call<BlogListResponse> call, Throwable t) {
-
-             }
-         });
-        }
-        if(business.isChecked()){
-
-        }
-        if(professional.isChecked()){
-
-        }
-
-        }
 }
+*/

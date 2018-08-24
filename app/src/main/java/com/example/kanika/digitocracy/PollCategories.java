@@ -1,13 +1,18 @@
 package com.example.kanika.digitocracy;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -24,6 +29,8 @@ public class PollCategories extends AppCompatActivity {
 
     ImageView setting_img,debets_img,blogs_img,home_img,blog_filter;
     TextView setting_txt,debets_txt,blogs_txt,home_txt;
+    RadioButton marketing,business,professional;
+    RadioGroup 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,6 +95,8 @@ public class PollCategories extends AppCompatActivity {
                 blogs_txt.setTextColor(Color.parseColor("#666666"));
                 debets_txt.setTextColor(Color.parseColor("#666666"));
                 setting_txt.setTextColor(Color.parseColor("#666666"));
+
+                blog_filter.setVisibility(view.INVISIBLE);
             }
         });
         blogs.setOnClickListener(new View.OnClickListener() {
@@ -107,6 +116,8 @@ public class PollCategories extends AppCompatActivity {
                 blogs_txt.setTextColor(getResources().getColor(R.color.clr));
                 debets_txt.setTextColor(Color.parseColor("#666666"));
                 setting_txt.setTextColor(Color.parseColor("#666666"));
+                blog_filter.setVisibility(view.INVISIBLE);
+
             }
         });
         debates.setOnClickListener(new View.OnClickListener() {
@@ -126,6 +137,8 @@ public class PollCategories extends AppCompatActivity {
                 blogs_txt.setTextColor(Color.parseColor("#666666"));
                 debets_txt.setTextColor(getResources().getColor(R.color.clr));
                 setting_txt.setTextColor(Color.parseColor("#666666"));
+                blog_filter.setVisibility(view.INVISIBLE);
+
 
             }
         });
@@ -135,8 +148,29 @@ public class PollCategories extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent=new Intent(PollCategories.this,FilterDetail.class);
-                startActivity(intent);
+
+                final Dialog dailog=new Dialog(getApplicationContext());
+                dailog.setContentView(R.layout.filter_detail);
+                marketing=(RadioButton)view.findViewById(R.id.marketing);
+                business=(RadioButton)view.findViewById(R.id.business);
+                professional=(RadioButton)view.findViewById(R.id.professional);
+                final TextView marketni_tv=(TextView)view.findViewById(R.id.marketing_tv);
+                TextView business_tv=(TextView)view.findViewById(R.id.business_tv);
+                TextView professional_tv=(TextView)view.findViewById(R.id.professional_tv);
+                Button done=view.findViewById(R.id.done);
+                categori=view.findViewById(R.id.categori);
+
+
+
+                blog_filter.setVisibility(view.VISIBLE);
+                android.support.v4.app.FragmentManager fragmentManager=getSupportFragmentManager();
+                android.support.v4.app.FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
+                FragmentBlog fragmentBlog=new FragmentBlog();
+                fragmentTransaction.replace(R.id.done,fragmentBlog);
+                fragmentTransaction.commit();
+
+
+
             }
         });
 

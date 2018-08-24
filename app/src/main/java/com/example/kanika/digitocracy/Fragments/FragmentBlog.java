@@ -1,7 +1,9 @@
 package com.example.kanika.digitocracy.Fragments;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,6 +16,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.kanika.digitocracy.APIResponse.BlogList.BlogList;
@@ -21,6 +29,7 @@ import com.example.kanika.digitocracy.APIResponse.BlogList.BlogListResponse;
 import com.example.kanika.digitocracy.APISHelper.API;
 import com.example.kanika.digitocracy.APISHelper.APIS;
 import com.example.kanika.digitocracy.Adapter.BlogAdapter;
+import com.example.kanika.digitocracy.PollCategories;
 import com.example.kanika.digitocracy.R;
 import com.example.kanika.digitocracy.extra.PaginationScrollListener;
 import com.example.kanika.digitocracy.extra.RecyclerViewMargin;
@@ -36,16 +45,26 @@ public class FragmentBlog extends Fragment {
     RecyclerView blog_recyclar_view;
     SharedPreferences LoginPref;
 
+
+
+
     int offset = 0;
     BlogAdapter blogAdapter;
     private boolean isLoading = false;
     SwipeRefreshLayout mSwipeRefreshLayout;
-
+    ImageView blog_filter;
+    String cat_id;
+    RadioGroup categori;
+    RadioButton marketing,business,professional;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_blog, container, false);
         blog_recyclar_view = view.findViewById(R.id.blog_recyclar_view);
+
+
+
+        blog_filter=view.findViewById(R.id.blog_filter);
 
         final LinearLayoutManager manager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         blog_recyclar_view.setLayoutManager(manager);
@@ -174,6 +193,152 @@ public class FragmentBlog extends Fragment {
             public void onFailure(Call<BlogListResponse> call, Throwable t) {
                 Toast.makeText(getContext(), "Something broken in the way.", Toast.LENGTH_SHORT).show();
 mProgressDialog.dismiss();
+            }
+        });
+
+        blog_filter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                final Dialog dailog=new Dialog(getContext());
+                dailog.setContentView(R.layout.filter_detail);
+
+               marketing=(RadioButton)view.findViewById(R.id.marketing);
+               business=(RadioButton)view.findViewById(R.id.business);
+               professional=(RadioButton)view.findViewById(R.id.professional);
+                final TextView marketni_tv=(TextView)view.findViewById(R.id.marketing_tv);
+                TextView business_tv=(TextView)view.findViewById(R.id.business_tv);
+                TextView professional_tv=(TextView)view.findViewById(R.id.professional_tv);
+                Button done=view.findViewById(R.id.done);
+                categori=view.findViewById(R.id.categori);
+
+                done.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        int selectedId=categori.getCheckedRadioButtonId();
+
+                                if (selectedId==1){
+
+
+                                /*    API apiService = APIS.getRetrofit().create(API.class);
+                                Call<BlogListResponse> call = apiService.blog_list(LoginPref.getString("user_id", ""), offset, "", LoginPref.getString("token", ""));
+
+                                call.enqueue(new Callback<BlogListResponse>() {
+                                    @Override
+                                    public void onResponse(Call<BlogListResponse> call, Response<BlogListResponse> response) {
+                                        BlogListResponse blogListResponse = response.body();
+                                        List<com.example.kanika.digitocracy.APIResponse.BlogList.Response> resList = blogListResponse.getResponse();
+                                        for (int i = 0; i < resList.size(); i++) {
+                                            com.example.kanika.digitocracy.APIResponse.BlogList.Response re = resList.get(i);
+                                            if (re.getStatus().equals("true")) {
+                                                offset = re.getOffset();
+
+                                                List<BlogList> blogLists = re.getBlogList();
+
+
+                                                blogAdapter = new BlogAdapter(blogLists, getContext());
+                                                blog_recyclar_view.setAdapter(blogAdapter);
+                                                Log.e("_Offset", String.valueOf(offset));
+
+                                                mSwipeRefreshLayout.setRefreshing(false);
+                                            } else {
+                                                mProgressDialog.dismiss();
+                                            }
+                                            }
+                                        }
+
+
+
+
+
+                                    @Override
+                                    public void onFailure(Call<BlogListResponse> call, Throwable t) {
+
+                                    }
+
+                                });
+*/
+                    }
+                                if (selectedId==2) {
+                                  /*  API apiService = APIS.getRetrofit().create(API.class);
+                                    Call<BlogListResponse> call = apiService.blog_list(LoginPref.getString("user_id", ""), offset, "", LoginPref.getString("token", ""));
+
+                                    call.enqueue(new Callback<BlogListResponse>() {
+                                        @Override
+                                        public void onResponse(Call<BlogListResponse> call, Response<BlogListResponse> response) {
+                                            BlogListResponse blogListResponse = response.body();
+                                            List<com.example.kanika.digitocracy.APIResponse.BlogList.Response> resList = blogListResponse.getResponse();
+                                            for (int i = 0; i < resList.size(); i++) {
+                                                com.example.kanika.digitocracy.APIResponse.BlogList.Response re = resList.get(i);
+                                                if (re.getStatus().equals("true")) {
+                                                    offset = re.getOffset();
+
+                                                    List<BlogList> blogLists = re.getBlogList();
+                                                    blogAdapter = new BlogAdapter(blogLists, getContext());
+                                                    blog_recyclar_view.setAdapter(blogAdapter);
+                                                    Log.e("_Offset", String.valueOf(offset));
+                                                    mSwipeRefreshLayout.setRefreshing(false);
+                                                } else {
+                                                    mProgressDialog.dismiss();
+                                                }
+                                            }
+
+                                        }
+
+                                        @Override
+                                        public void onFailure(Call<BlogListResponse> call, Throwable t) {
+
+
+                                        }
+                                    });
+*/
+
+                        }
+
+                                if (selectedId==3) {
+/*
+
+                                    API apiService = APIS.getRetrofit().create(API.class);
+                                    Call<BlogListResponse> call = apiService.blog_list(LoginPref.getString("user_id", ""), offset, "", LoginPref.getString("token", ""));
+
+                                    call.enqueue(new Callback<BlogListResponse>() {
+                                        @Override
+                                        public void onResponse(Call<BlogListResponse> call, Response<BlogListResponse> response) {
+                                            BlogListResponse blogListResponse = response.body();
+                                            List<com.example.kanika.digitocracy.APIResponse.BlogList.Response> resList = blogListResponse.getResponse();
+                                            for (int i = 0; i < resList.size(); i++) {
+                                                com.example.kanika.digitocracy.APIResponse.BlogList.Response re = resList.get(i);
+                                                if (re.getStatus().equals("true")) {
+                                                    offset = re.getOffset();
+
+                                                    List<BlogList> blogLists = re.getBlogList();
+                                                    blogAdapter = new BlogAdapter(blogLists, getContext());
+                                                    blog_recyclar_view.setAdapter(blogAdapter);
+                                                    Log.e("_Offset", String.valueOf(offset));
+                                                    mSwipeRefreshLayout.setRefreshing(false);
+                                                } else {
+                                                    mProgressDialog.dismiss();
+                                                }
+                                            }
+
+                                        }
+
+                                        @Override
+                                        public void onFailure(Call<BlogListResponse> call, Throwable t) {
+
+                                        }
+                                    });
+*/
+
+                                }
+                        }
+
+
+
+                });
+
             }
         });
     }

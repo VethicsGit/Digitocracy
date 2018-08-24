@@ -94,6 +94,7 @@ public class BlogAdapter extends RecyclerView.Adapter<BlogAdapter.ViewHolder> {
                  /*   Toast.makeText(view.getContext(), "inside viewholder position = " + getAdapterPosition(), Toast.LENGTH_SHORT).show();*/
                     Intent intent = new Intent  (context, BlogDetail.class);
                     intent.putExtra("blog_id",blog_id.getText().toString());
+                    intent.putExtra("cat_id",blog_cateid.getText().toString());
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);
 
