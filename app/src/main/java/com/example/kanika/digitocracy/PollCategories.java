@@ -209,6 +209,9 @@ public class PollCategories extends AppCompatActivity {
                         JsonArray resopnseArray=myCustomArray.getAsJsonArray("response");
                         if (resopnseArray.get(0).getAsJsonObject().get("status").getAsString().equals("true")) {
                             JsonArray pollArray = resopnseArray.get(0).getAsJsonObject().getAsJsonArray("blog_category_list");
+
+
+                            Log.e("response","response"+pollArray);
                          /*   JsonObject pollObj= pollArray.get(0).getAsJsonObject();*/
                             try {
                                 ColorStateList colorStateList = new ColorStateList(new int[][]{
