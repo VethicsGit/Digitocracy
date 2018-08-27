@@ -75,10 +75,9 @@ public class BlogDetail extends AppCompatActivity {
                     if (response1.getStatus().equals("true")){
                         Log.e("msg","Response"+response1);
                         for (int x=0;x<blogDetails.size();x++){
-<<<<<<< HEAD
+
                             BlogDetail_ blogDetail_=blogDetails.get(x);
-=======
-                            BlogDetail_ blogDetail_= blogDetails.get(x);
+
 
                             Log.e("blog","res"+blogDetail_);
                             blog_detail_title.setText(blogDetail_.getBlogTitle());
@@ -89,7 +88,7 @@ public class BlogDetail extends AppCompatActivity {
 
                             Glide.with(getApplicationContext()).load(blogDetail_.getCoverImage()).into(blog_detail_image);
 
->>>>>>> 1a525b89ba867e6d7a14e139b9900625ed7c8a16
+
 
 
 
