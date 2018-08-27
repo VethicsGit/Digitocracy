@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.example.kanika.digitocracy.Fragments.FragmentInfclose;
 import com.example.kanika.digitocracy.Fragments.FragmentInflive;
 
-public class Infrastructure extends AppCompatActivity {
+public class    Infrastructure extends AppCompatActivity {
     TextView live_inf,close_inf;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -127,11 +127,9 @@ public class DebatesAdapter extends RecyclerView.Adapter<DebatesAdapter.ViewHold
 
 
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 5a6c86cb4e8342e497c2eb0f336114535e55e54a
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView debates_title,debates_date_time,debates_profilename1,debates_profilename2,debates_profilename3;
         Button debates_join;

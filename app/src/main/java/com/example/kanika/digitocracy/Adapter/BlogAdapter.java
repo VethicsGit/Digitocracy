@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.kanika.digitocracy.APIResponse.BlogList.BlogList;
@@ -84,15 +85,27 @@ public class BlogAdapter extends RecyclerView.Adapter<BlogAdapter.ViewHolder> {
             blog_title=itemView.findViewById(R.id.blog_title);
             bloglist_blogcatetitle=itemView.findViewById(R.id.bloglist_blogcatetitle);
             blog_coverimg=itemView.findViewById(R.id.blog_coverimg);
+
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                 /*   Toast.makeText(view.getContext(), "inside viewholder position = " + getAdapterPosition(), Toast.LENGTH_SHORT).show();*/
+                    Intent intent = new Intent  (context, BlogDetail.class);
+                    intent.putExtra("blog_id",blog_id.getText().toString());
+                    intent.putExtra("cat_id",blog_cateid.getText().toString());
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
+
+                }
+            });
         }
 
         @Override
         public void onClick(View view) {
 
-            int postion = getAdapterPosition();
-            BlogList blogList=this.blogLists.get(postion);
-            Intent intent = new Intent (view.getContext(), BlogDetail.class);
-            view.getContext().startActivity(intent);
+
 
         }
     }
