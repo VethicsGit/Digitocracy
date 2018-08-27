@@ -76,12 +76,12 @@ public class BlogDetail extends AppCompatActivity {
                         Log.e("msg","Response"+response1);
                         for (int x=0;x<blogDetails.size();x++){
 
-<<<<<<< HEAD
-                            BlogDetail_ blogDetail_= blogDetails.get(x);
-=======
-                            BlogDetail_ blogDetail_=blogDetails.get(x);
 
->>>>>>> 66cfa1c11a21f16eb6cb8ace1916f51daee36cd7
+                            BlogDetail_ blogDetail_= blogDetails.get(x);
+
+
+
+
 
                             Log.e("blog","res"+blogDetail_);
                             blog_detail_title.setText(blogDetail_.getBlogTitle());
@@ -91,12 +91,6 @@ public class BlogDetail extends AppCompatActivity {
 
 
                             Glide.with(getApplicationContext()).load(blogDetail_.getCoverImage()).into(blog_detail_image);
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 66cfa1c11a21f16eb6cb8ace1916f51daee36cd7
-
 
 
                         }
