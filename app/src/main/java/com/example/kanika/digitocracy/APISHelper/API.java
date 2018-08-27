@@ -82,6 +82,7 @@ public interface API {
     @POST("Poll_category_list")
     Call<PollCategoryList> Poll_category_list(@Field("user_id") String user_id, @Header("Authorization") String authorization);
 
+    @FormUrlEncoded
     @POST("blog_category_list")
     Call<BlogCateDetail> bolg_category_list(@Field("user_id") String user_id
             , @Header("Authorization") String token);
