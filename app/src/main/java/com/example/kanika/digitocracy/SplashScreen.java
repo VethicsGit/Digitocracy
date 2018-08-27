@@ -91,6 +91,7 @@ public class SplashScreen extends Activity {
                     @Override
                     public void onFailure(Call<LoginResponse> call, Throwable t) {
                         Toast.makeText(SplashScreen.this, "Something went wrong.", Toast.LENGTH_SHORT).show();
+                       Log.e(SplashScreen.class.getName().toLowerCase(), t.toString());
                         mProgressDialog.dismiss();
                     }
                 });

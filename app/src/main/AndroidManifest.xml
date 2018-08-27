@@ -5,6 +5,12 @@
     <uses-permission android:name = "android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name = "android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+
     <application
         android:name = ".Digitocracy"
         android:allowBackup = "true"
@@ -35,6 +41,7 @@
         <activity android:name = ".Polling.ActivityPollingMain"/>
         <activity android:name = ".ActivityPollDetails"/>
         <activity android:name=".BlogDetail"/>
+        <activity android:name=".DebeteVideoActivity"/>
     </application>
 
 </manifest>

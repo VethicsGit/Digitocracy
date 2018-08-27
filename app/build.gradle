@@ -49,4 +49,5 @@ dependencies {
     implementation 'com.github.blackfizz:eazegraph:1.2.2@aar'
     implementation 'com.nineoldandroids:library:2.4.0'
 
+    implementation 'io.agora.rtc:full-sdk:2.2.3'
 }

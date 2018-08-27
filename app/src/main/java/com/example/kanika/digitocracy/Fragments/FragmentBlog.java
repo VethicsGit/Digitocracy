@@ -211,7 +211,7 @@ mProgressDialog.dismiss();
                 TextView business_tv=(TextView)view.findViewById(R.id.business_tv);
                 TextView professional_tv=(TextView)view.findViewById(R.id.professional_tv);
                 Button done=view.findViewById(R.id.done);
-                categori=view.findViewById(R.id.categori);
+//                categori=view.findViewById(R.id.categori);
 
                 done.setOnClickListener(new View.OnClickListener() {
                     @Override

@@ -1,8 +1,10 @@
 package com.example.kanika.digitocracy.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
@@ -17,6 +19,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.kanika.digitocracy.APIResponse.DebatesList.DebateList;
 import com.example.kanika.digitocracy.APIResponse.DebatesList.DebateParticipant;
+import com.example.kanika.digitocracy.DebeteVideoActivity;
 import com.example.kanika.digitocracy.Public;
 import com.example.kanika.digitocracy.R;
 import com.google.gson.Gson;
@@ -55,7 +58,7 @@ public class DebatesAdapter extends RecyclerView.Adapter<DebatesAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
 
         DebateList debate = debateList.get(position);
         holder.debates_title.setText(debate.getTopicTitle());
@@ -114,6 +117,22 @@ public class DebatesAdapter extends RecyclerView.Adapter<DebatesAdapter.ViewHold
            /* holder.debates_profilename1.setText(debat.getName());
 
             Glide.with(context).load(debat.getProfilePic()).into(holder.debates_profile1);*/
+           holder.debates_join.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View view) {
+                   Intent i=new Intent(context,DebeteVideoActivity.class);
+                   context.startActivity(i);
+               }
+           });
+
+           holder.debete_item_root_layout.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View view) {
+                   Intent i=new Intent(context,DebeteVideoActivity.class);
+                   context.startActivity(i);
+               }
+           });
+
         }
 
     }
@@ -135,6 +154,7 @@ public class DebatesAdapter extends RecyclerView.Adapter<DebatesAdapter.ViewHold
         Button debates_join;
         ImageView debates_profile1, debates_profile2, debates_profile3;
         LinearLayout debates_layout_img;
+        CardView debete_item_root_layout;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -149,6 +169,7 @@ public class DebatesAdapter extends RecyclerView.Adapter<DebatesAdapter.ViewHold
 //            debates_profile3 = itemView.findViewById(R.id.debates_profile3);
             debates_join = itemView.findViewById(R.id.debates_join);
             debates_layout_img = itemView.findViewById(R.id.debates_layout_img);
+            debete_item_root_layout = itemView.findViewById(R.id.debete_item_root_layout);
 
         }
 

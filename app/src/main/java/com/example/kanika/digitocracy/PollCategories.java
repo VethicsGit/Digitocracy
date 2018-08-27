@@ -199,7 +199,7 @@ public class PollCategories extends AppCompatActivity {
                 API apiService = APIS.getRetrofit().create(API.class);
                 Call<BlogCateDetail> call1 = apiService.bolg_category_list(LoginPref.getString("user_id", ""), LoginPref.getString("token", ""));
 
-                call1.enqueue(new Callback<BlogCateDetail>() {
+              /*  call1.enqueue(new Callback<BlogCateDetail>() {
                     @RequiresApi(api = Build.VERSION_CODES.N)
                     @Override
                     public void onResponse(@NonNull Call<BlogCateDetail> call, @NonNull Response<BlogCateDetail> response) {
@@ -222,8 +222,8 @@ public class PollCategories extends AppCompatActivity {
                                 });
                                 mProgressDialog.dismiss();
                                 JSONObject obj=new JSONObject(pollObj.toString());
-                              /*  poll_details_title.setText(obj.getString("poll_title"));
-                                poll_details_totalvotes.setText("Total votes : "+obj.getString("total_poll_votes"));*/
+                              *//*  poll_details_title.setText(obj.getString("poll_title"));
+                                poll_details_totalvotes.setText("Total votes : "+obj.getString("total_poll_votes"));*//*
                                 JSONArray pollVoteOptArray=obj.getJSONArray("poll_vote_options");
                                 for (int x=0;x<pollArray.size();x++){
                                     LinearLayout layout=new LinearLayout(getApplicationContext());
@@ -320,7 +320,7 @@ public class PollCategories extends AppCompatActivity {
                     public void onFailure(Call<BlogCateDetail> call, Throwable t) {
 
                     }
-                });
+                });*/
 
 
                 dailog.show();
