@@ -23,6 +23,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.http.HEAD;
 
 public class BlogDetail extends Fragment {
 
@@ -57,11 +58,8 @@ public class BlogDetail extends Fragment {
 
                     if (response1.getStatus().equals("true")){
                         for (int x=0;x<blogDetails.size();x++){
-<<<<<<< HEAD
                             BlogDetail_ blogDetail_=blogDetails.get(x);
-=======
 
->>>>>>> 5a6c86cb4e8342e497c2eb0f336114535e55e54a
 
 
                         }
