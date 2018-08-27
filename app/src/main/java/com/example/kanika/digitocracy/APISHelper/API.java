@@ -1,6 +1,7 @@
 package com.example.kanika.digitocracy.APISHelper;
 
 import com.example.kanika.digitocracy.APIResponse.Aboutus.Aboutus;
+import com.example.kanika.digitocracy.APIResponse.BlogCateDetail.BlogCateDetail;
 import com.example.kanika.digitocracy.APIResponse.BlogDetail.BlogDetailResponse;
 import com.example.kanika.digitocracy.APIResponse.BlogList.BlogListResponse;
 import com.example.kanika.digitocracy.APIResponse.DebatesList.Debates;
@@ -82,7 +83,8 @@ public interface API {
     Call<PollCategoryList> Poll_category_list(@Field("user_id") String user_id, @Header("Authorization") String authorization);
 
     @POST("blog_category_list")
-    Call<RealResponseBody> bolg_category_list(@Field("user_id") String user_id);
+    Call<BlogCateDetail> bolg_category_list(@Field("user_id") String user_id
+            , @Header("Authorization") String token);
 
     @FormUrlEncoded
     @POST("blog_list")
