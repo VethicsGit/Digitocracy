@@ -175,7 +175,7 @@ public class PollCategories extends AppCompatActivity {
 
         blog_filter.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(final View view) {
                 blog_filter.setVisibility(View.GONE);
 
                 final Dialog dailog=new Dialog(PollCategories.this,android.R.style.Theme_Light_NoTitleBar);
@@ -183,10 +183,10 @@ public class PollCategories extends AppCompatActivity {
                 marketing=dailog.findViewById(R.id.marketing);
                 business=dailog.findViewById(R.id.business);
                 professional=dailog.findViewById(R.id.professional);
-               TextView marketing_tv=view.findViewById(R.id.marketing_tv);
-                TextView business_tv=view.findViewById(R.id.business_tv);
-                TextView professional_tv=view.findViewById(R.id.professional_tv);
-                Button done=dailog.findViewById(R.id.done);
+               final TextView marketing_tv=view.findViewById(R.id.marketing_tv);
+                final TextView business_tv=view.findViewById(R.id.business_tv);
+                final TextView professional_tv=view.findViewById(R.id.professional_tv);
+                final Button done=dailog.findViewById(R.id.done);
                 blog_filter_radio_group=dailog.findViewById(R.id.blog_filter_radio_group);
 
                 SharedPreferences LoginPref = getSharedPreferences("LoginStatus", Context.MODE_PRIVATE);
@@ -209,7 +209,7 @@ public class PollCategories extends AppCompatActivity {
                         JsonArray resopnseArray=myCustomArray.getAsJsonArray("response");
                         if (resopnseArray.get(0).getAsJsonObject().get("status").getAsString().equals("true")) {
                             JsonArray pollArray = resopnseArray.get(0).getAsJsonObject().getAsJsonArray("blog_category_list");
-                            JsonObject pollObj= pollArray.get(0).getAsJsonObject();
+                         /*   JsonObject pollObj= pollArray.get(0).getAsJsonObject();*/
                             try {
                                 ColorStateList colorStateList = new ColorStateList(new int[][]{
 
@@ -221,29 +221,83 @@ public class PollCategories extends AppCompatActivity {
 
                                 });
                                 mProgressDialog.dismiss();
+<<<<<<< HEAD
                                 JSONObject obj=new JSONObject(pollObj.toString());
                               *//*  poll_details_title.setText(obj.getString("poll_title"));
                                 poll_details_totalvotes.setText("Total votes : "+obj.getString("total_poll_votes"));*//*
                                 JSONArray pollVoteOptArray=obj.getJSONArray("poll_vote_options");
                                 for (int x=0;x<pollArray.size();x++){
+=======
+                               /* JSONObject obj=new JSONObject(pollObj.toString());*/
+                               if (pollArray.getAsJsonObject().get("status").getAsString().equals("true")){
+
+
+
+                                   final JSONObject jsonObject=new JSONObject(pollArray.toString());
+                                   dailog.show();
+                                   done.setOnClickListener(new View.OnClickListener() {
+                                       @Override
+                                       public void onClick(View view) {
+                                           int selectedId=blog_filter_radio_group.getCheckedRadioButtonId();
+
+                                           if (selectedId==1){
+
+                                               try {
+                                                   marketing_tv.setText(jsonObject.getString("blog_category_id"));
+
+                                               } catch (JSONException e) {
+                                                   e.printStackTrace();
+                                               }
+
+
+                                           }
+                                           if (selectedId==2){
+
+                                               try {
+                                                   business_tv.setText(jsonObject.getString("blog_category_id"));
+                                               } catch (JSONException e) {
+                                                   e.printStackTrace();
+                                               }
+                                           }
+                                           if (selectedId==3){
+
+                                               try {
+                                                   professional_tv.setText(jsonObject.getString("blog_category_id"));
+                                               } catch (JSONException e) {
+                                                   e.printStackTrace();
+                                               }
+
+                                           }
+                                       }
+                                   });
+
+                               }
+                              /*  poll_details_title.setText(obj.getString("poll_title"));
+                                poll_details_totalvotes.setText("Total votes : "+obj.getString("total_poll_votes"));*/
+/*
+                                    JSONArray pollVoteOptArray=obj.getJSONArray("poll_vote_options");
+*/
+                              /*  for (int x=0;x<pollArray.size();x++){
+>>>>>>> 66cfa1c11a21f16eb6cb8ace1916f51daee36cd7
                                     LinearLayout layout=new LinearLayout(getApplicationContext());
                                     LinearLayout.LayoutParams params=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT,1);
                                     params.setMargins(5,5,5,5);
                                     layout.setOrientation(LinearLayout.VERTICAL);
-                                    layout.setLayoutParams(params);
+                                    layout.setLayoutParams(params);*/
 
-
+/*
                                     RadioButton tv=new RadioButton(getApplicationContext());
                                     tv.setTextSize(20.0f);
-                                    tv.setTag(pollVoteOptArray.getJSONObject(x).getString("poll_vote_option_id"));
+                                    tv.setTag(pollArray.getAsJsonObject(x).getString("blog_category_id"));
                                     tv.setTextColor(Color.BLACK);
 //                                tv.setEnabled(false);
                                     tv.setClickable(false);
                                     tv.setButtonTintList(colorStateList);
                                     if (obj.getInt("my_poll_vote_option_id")==pollVoteOptArray.getJSONObject(x).getInt("poll_vote_option_id")) tv.setChecked(true);
                                     tv.setText(pollVoteOptArray.getJSONObject(x).getString("option"));
-                                    layout.addView(tv);
+                                    layout.addView(tv);*/
 
+/*
 
                                     RoundCornerProgressBar progressBar=new RoundCornerProgressBar(PollCategories.this, null, android.R.attr.progressBarStyleHorizontal);
                                     LinearLayout.LayoutParams paramsprogress=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 30);
@@ -302,11 +356,12 @@ public class PollCategories extends AppCompatActivity {
 
 
                                     mBarChart.addBar(new BarModel(pollVoteOptArray.getJSONObject(x).getString("option")+" "+pollVoteOptArray.getJSONObject(x).getInt("vote_count")/obj.getInt("total_poll_votes")*100+"%",pollVoteOptArray.getJSONObject(x).getInt("vote_count")/obj.getInt("total_poll_votes")*100, c[x]));
+*/
 
 
 
-                                }
-                                mBarChart.startAnimation();
+                               /* }*/
+                             /*   mBarChart.startAnimation();*/
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -323,23 +378,7 @@ public class PollCategories extends AppCompatActivity {
                 });*/
 
 
-                dailog.show();
-                done.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        int selectedId=blog_filter_radio_group.getCheckedRadioButtonId();
 
-                        if (selectedId==1){
-
-                        }
-                        if (selectedId==2){
-
-                        }
-                        if (selectedId==3){
-
-                        }
-                    }
-                });
 
 
 
